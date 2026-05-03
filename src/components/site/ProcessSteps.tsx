@@ -1,71 +1,38 @@
-import Image from "next/image";
 import { Section } from "./Section";
-
-const steps = [
-  {
-    title: "Pošaljete mi opis problema",
-    description: "Kratko opišite što ne radi: kada je počelo, koji uređaj koristite i imate li važne podatke.",
-  },
-  {
-    title: "Dobijete iskrenu procjenu",
-    description: "Ako mogu pomoći, dogovorimo se. Ako je kvar prevelik za moj nivo, kažem vam odmah.",
-  },
-  {
-    title: "Pregled pa dogovor",
-    description: "Nakon provjere objasnim što sam našao i predložim rješenje. Bez skrivenih troškova.",
-  },
-  {
-    title: "Rješavanje i savjet",
-    description: "Cilj je popravljeno računalo i vaše jasnije razumijevanje kako izbjeći problem ubuduće.",
-  }
-];
 
 export function ProcessSteps() {
   return (
-    <Section className="bg-[var(--color-bg-primary)] overflow-hidden py-[var(--spacing-section-mobile)] md:py-[var(--spacing-section)] border-t border-[var(--color-border)]">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+    <Section className="bg-stone-50 py-16 md:py-24 border-t border-stone-200">
+      <div className="max-w-5xl mx-auto px-6">
+        <h2 className="text-3xl md:text-5xl font-bold text-stone-900 mb-12">
+          Kako izgleda naš dogovor?
+        </h2>
         
-        <div className="relative order-2 lg:order-1">
-          <div className="relative rounded-[var(--radius-card)] overflow-hidden aspect-[4/5] border border-[var(--color-border)] bg-[var(--color-bg-surface)]">
-            <Image 
-              src="/images/process_hands.png"
-              alt="Tipkanje po laptopu — ljudski pristup IT problemima"
-              fill
-              className="object-cover opacity-90"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </div>
-        </div>
-
-        <div className="order-1 lg:order-2">
-          <div className="mb-10 md:mb-14">
-            <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6 leading-tight">
-              Kako točno radim
-            </h2>
-            <p className="text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed max-w-xl">
-              Bez kompliciranja i praznih obećanja. Evo što možete očekivati od prvog kontakta do popravka.
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="relative">
+            <span className="text-sm font-bold tracking-widest uppercase text-teal-700 mb-4 block bg-teal-50 w-fit px-3 py-1 rounded">Korak 1</span>
+            <h3 className="text-xl font-bold text-stone-900 mb-3">Javite mi u čemu je problem</h3>
+            <p className="text-stone-600 leading-relaxed">
+              Kratko mi u poruci ili pozivu opišite što šteka i od kad to traje. Nisu potrebni stručni izrazi — samo recite što vidite.
             </p>
           </div>
-
-          <div className="relative space-y-10">
-            {steps.map((step, index) => (
-              <div key={index} className="relative z-10 flex items-start gap-5">
-                <div className="w-10 h-10 rounded-full bg-[var(--color-bg-surface)] border border-[var(--color-border)] text-[var(--color-text-primary)] flex-shrink-0 flex items-center justify-center font-bold text-lg">
-                  {index + 1}
-                </div>
-                <div className="pt-1.5 flex-1">
-                  <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-base text-[var(--color-text-secondary)] leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+          
+          <div className="relative">
+            <span className="text-sm font-bold tracking-widest uppercase text-teal-700 mb-4 block bg-teal-50 w-fit px-3 py-1 rounded">Korak 2</span>
+            <h3 className="text-xl font-bold text-stone-900 mb-3">Iskrena procjena i cijena</h3>
+            <p className="text-stone-600 leading-relaxed">
+              Prije bilo kakvog rada, pregledam uređaj i objasnim što mogu napraviti. Tada vam dam točnu cijenu unaprijed, bez iznenađenja.
+            </p>
+          </div>
+          
+          <div className="relative">
+            <span className="text-sm font-bold tracking-widest uppercase text-teal-700 mb-4 block bg-teal-50 w-fit px-3 py-1 rounded">Korak 3</span>
+            <h3 className="text-xl font-bold text-stone-900 mb-3">Popravak uz objašnjenje</h3>
+            <p className="text-stone-600 leading-relaxed">
+              Kad završim, računalo vam predam sređeno. Usput objasnim par sitnica na što paziti ubuduće, da vas ne muči ista stvar.
+            </p>
           </div>
         </div>
-
       </div>
     </Section>
   );

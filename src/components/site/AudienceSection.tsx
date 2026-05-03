@@ -1,55 +1,37 @@
 import { Section } from "./Section";
 
-const audiences = [
-  {
-    title: "Kućni korisnici",
-    description: "Laptop Vam služi za internet, dokumente i fotografije, ali je jednostavno spor i nešto šteka.",
-  },
-  {
-    title: "Starije osobe",
-    description: "Želite da Vam netko polako, bez nervoze objasni gdje se što nalazi i složi osnovne programe.",
-  },
-  {
-    title: "Studenti",
-    description: "Trebate osigurati da Vam laptop preživi do kraja studija bez da stalno gubite vrijeme na glupe greške u Windowsima.",
-  },
-  {
-    title: "Mali uredi",
-    description: "Imate jednostavan problem s radnim računalom ili printerom, ali Vam ne treba skupi mjesečni ugovor za održavanje.",
-  }
-];
-
 export function AudienceSection() {
   return (
-    <Section className="bg-[var(--color-bg-surface)] py-[var(--spacing-section-mobile)] md:py-[var(--spacing-section)] border-t border-[var(--color-border)]">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-        
-        {/* Left Column: Heading */}
-        <div className="lg:col-span-1">
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-6 leading-tight">
-            Normalna IT pomoć za normalne ljude
-          </h2>
-          <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
-            Moj posao nije slagati servere za korporacije, već osigurati da vaše računalo radi pouzdano kako biste ga mogli koristiti bez frustracija.
-          </p>
-        </div>
+    <Section id="kome-je-namijenjeno" className="bg-white py-16 md:py-24 border-t border-stone-200">
+      <div className="mx-auto max-w-4xl text-center">
+        <h2 className="mb-8 text-3xl font-bold text-stone-900 sm:text-4xl">
+          Za koga je ova usluga?
+        </h2>
+        <p className="mb-12 text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto">
+          Nisam servis za ogromne tvrtke s poslovnim mrežama. Fokusiram se na normalne ljude u Zagrebu koji samo žele
+          da im računalo normalno radi.
+        </p>
 
-        {/* Right Column: Audience Types */}
-        <div className="lg:col-span-2">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12">
-            {audiences.map((audience, index) => (
-              <div key={index} className="flex flex-col border-t border-[var(--color-border)] pt-4">
-                <h3 className="text-lg md:text-xl font-bold text-[var(--color-text-primary)] mb-2">
-                  {audience.title}
-                </h3>
-                <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                  {audience.description}
-                </p>
-              </div>
-            ))}
+        <div className="grid gap-6 sm:grid-cols-3 text-left">
+          <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
+            <h3 className="mb-2 font-bold text-stone-900">Kućni korisnici</h3>
+            <p className="text-stone-600">
+              Studenti, zaposleni roditelji ili svakodnevni korisnici s problematičnim laptopom koji &quot;šteka&quot;.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
+            <h3 className="mb-2 font-bold text-stone-900">Starije osobe</h3>
+            <p className="text-stone-600">
+              Strpljivo objašnjavam kako nešto funkcionira, bez okretanja očima i nepotrebnih engleskih riječi.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
+            <h3 className="mb-2 font-bold text-stone-900">Mali obrti i freelanceri</h3>
+            <p className="text-stone-600">
+              Manji uredi kojima treba netko posložiti računala da jednostavno i sigurno rade.
+            </p>
           </div>
         </div>
-
       </div>
     </Section>
   );

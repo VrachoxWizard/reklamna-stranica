@@ -1,101 +1,96 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { Section } from "./Section";
-import { ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
 
-const faqs = [
+type FAQItem = {
+  question: string;
+  answer: string;
+};
+
+const faqs: FAQItem[] = [
   {
-    question: "Možete li popraviti svaki kvar?",
-    answer: "Ne. Fokusiram se na softverske probleme i osnovnu optimizaciju. Ako problem izgleda kao ozbiljan hardverski kvar matične ploče ili ekrana, savjetovat ću Vam odlazak u specijalizirani servis."
+    question: "Radite li dolazak na lokaciju?",
+    answer: "Da, za većinu problema dolazim do vas u Zagrebu i bližoj okolici. Neke stvari, ako zahtijevaju više sati rada (poput dubokog skeniranja i spašavanja podataka), možda ponesem kod sebe pa vam vratim sređeno.",
   },
   {
-    question: "Što ako ne znate riješiti problem?",
-    answer: "Ako nakon pregleda shvatim da je problem izvan mog znanja, reći ću Vam to otvoreno. Ne naplaćujem pokušaje rješavanja ako od početka znam da ne mogu pomoći."
+    question: "Mogu li prvo poslati opis problema na WhatsApp?",
+    answer: "Naravno, to je i najbolje. Napišite mi ukratko što se događa, poslikajte ekran ako ima neka greška, pa ću vam odmah reći ima li smisla da to gledam i koliko bi otprilike koštalo.",
   },
   {
-    question: "Radite li reinstalaciju Windowsa?",
-    answer: "Da, ali prije bilo kakvog brisanja uvijek provjerimo i napravimo backup Vaših važnih slika i dokumenata kako se ne bi ništa izgubilo."
+    question: "Što ako se problem ne može riješiti?",
+    answer: "Ako nakon pregleda zaključim da je riječ o fizičkom kvaru (npr. izgorjela matična, uništen disk) koji ja ne mogu popraviti, reći ću vam to odmah. U tom slučaju naplaćujem samo simboličnu dijagnostiku/dolazak, a ne popravak koji nije uspio.",
   },
   {
-    question: "Možete li spasiti podatke s pokvarenog diska?",
-    answer: "Ako disk nije fizički oštećen i još se može očitati, da. Ako disk glasno klika ili se uopće ne pali, tu nažalost pomažu samo firme za data recovery."
+    question: "Radite li backup podataka prije reinstalacije?",
+    answer: "Uvijek. Ako treba formatirati disk ili stavljati novi Windows, prvo prekopiramo vaše dokumente, slike i bitne foldere na sigurno. Vaši podaci su prioritet.",
   },
   {
-    question: "Pomažete li starijim osobama i početnicima?",
-    answer: "Svakako. Velik dio posla je upravo to — smireno objašnjavanje kako nešto funkcionira, bez okretanja očima."
+    question: "Instalirate li piratske programe?",
+    answer: "Ne. Koristim isključivo besplatne alternative, open-source rješenja ili originalne licence ako ih imate. Za većinu onoga što kućnom korisniku treba, postoji super besplatan program.",
   },
   {
-    question: "Je li cijena unaprijed poznata?",
-    answer: "Cijena ovisi o problemu, ali prije bilo kakvog rada na računalu napravim kratku procjenu i kažem Vam koliko bi to otprilike koštalo."
+    question: "Možete li pomoći starijim osobama i onima koji se boje kliknuti nešto krivo?",
+    answer: "Apsolutno. Navikao sam raditi s ljudima kojima tehnologija ide na živce. Objasnim polako, napišem na papir korake ako treba, i uredim računalo tako da bude što jednostavnije za korištenje.",
   },
-  {
-    question: "Radite li izlazak na teren?",
-    answer: "Moguće prema dogovoru ako se radi o rješavanju problema kod Vas doma, poput problema s kućnim printerom ili WiFi mrežom u Zagrebu."
-  },
-  {
-    question: "Instalirate li piratske Windowse i programe?",
-    answer: "Ne. Radim isključivo s Windows licencama koje već imate ili vam mogu preporučiti gdje povoljno kupiti legalan ključ."
-  }
 ];
 
 export function FAQAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggleItem = (index: number) => {
+  const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <Section className="bg-[var(--color-bg-primary)] py-[var(--spacing-section-mobile)] md:py-[var(--spacing-section)] border-t border-[var(--color-border)]">
-      <div className="max-w-3xl mx-auto">
-        <div className="mb-10 md:mb-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-6">
+    <Section id="pitanja" className="bg-[#FAF9F6] py-16 sm:py-24">
+      <div className="mx-auto max-w-3xl">
+        <div className="mb-12 text-center md:text-left">
+          <h2 className="text-3xl font-medium tracking-tight text-neutral-900 sm:text-4xl">
             Česta pitanja
           </h2>
-          <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
-            Sve što trebate znati prije nego se javite. Bez sitnih slova.
+          <p className="mt-4 text-lg text-neutral-600">
+            Odgovori na ono što me ljudi najčešće pitaju prije nego što se dogovorimo.
           </p>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div 
-                key={index} 
-                className="border-b border-[var(--color-border)] last:border-0"
+                key={index}
+                className="group rounded-2xl border border-neutral-200/60 bg-white transition-colors duration-200 hover:border-neutral-300"
               >
-                <button 
-                  onClick={() => toggleItem(index)}
-                  className="w-full min-h-[56px] flex items-center justify-between gap-4 py-5 md:py-6 text-left focus:outline-none"
+                <button
+                  type="button"
+                  onClick={() => toggle(index)}
+                  className="flex w-full items-center justify-between px-6 py-5 text-left min-h-[60px] rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2"
                   aria-expanded={isOpen}
                 >
-                  <span className={cn(
-                    "text-lg md:text-xl font-bold leading-snug transition-colors break-words",
-                    isOpen ? "text-[var(--color-accent)]" : "text-[var(--color-text-primary)]"
-                  )}>
+                  <span className="text-lg font-medium text-neutral-800">
                     {faq.question}
                   </span>
-                  <div className={cn(
-                    "flex-shrink-0 transition-transform duration-300",
-                    isOpen ? "text-[var(--color-accent)] rotate-180" : "text-[var(--color-text-secondary)]"
-                  )}>
-                    <ChevronDown className="w-5 h-5 stroke-[2.5]" />
-                  </div>
+                  <span className="ml-6 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-neutral-50 text-neutral-500 group-hover:bg-amber-50 group-hover:text-amber-700 transition-colors">
+                    {isOpen ? (
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
+                      </svg>
+                    ) : (
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                      </svg>
+                    )}
+                  </span>
                 </button>
                 
                 <div 
-                  className={cn(
-                    "grid transition-all duration-300 ease-in-out",
-                    isOpen ? "grid-rows-[1fr] opacity-100 mb-6" : "grid-rows-[0fr] opacity-0"
-                  )}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  }`}
                 >
-                  <div className="overflow-hidden">
-                    <p className="text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed pr-8 break-words">
-                      {faq.answer}
-                    </p>
+                  <div className="px-6 pb-6 text-neutral-600 leading-relaxed">
+                    {faq.answer}
                   </div>
                 </div>
               </div>

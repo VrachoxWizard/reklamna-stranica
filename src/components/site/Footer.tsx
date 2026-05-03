@@ -1,41 +1,84 @@
-const PHONE_NUMBER_DISPLAY = "0994414638";
-const PHONE_E164 = "+385994414638";
-const WHATSAPP_LINK = "https://wa.me/385994414638";
-const EMAIL_ADDRESS = "matevukusic123321@gmail.com";
+﻿import Link from "next/link";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[var(--color-bg-surface)] border-t border-[var(--color-border)] py-12 pb-28 md:py-16 md:pb-16">
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4 tracking-tight">
-          Direkt IT Pomoć Zagreb
-        </h2>
-        <p className="mb-8 leading-relaxed text-[var(--color-text-secondary)] text-base max-w-lg mx-auto">
-          Ljudska i poštena IT pomoć za spora računala, osnovnu optimizaciju i backup podataka. Zagreb i okolica.
-        </p>
+    <footer className="border-t border-neutral-200 bg-white pt-16 pb-28 md:pb-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+          {/* Brand & Vibe */}
+          <div className="lg:pr-8">
+            <h3 className="text-xl font-medium tracking-tight text-neutral-900">
+              Direkt IT Pomoć
+            </h3>
+            <p className="mt-4 text-neutral-600 leading-relaxed">
+              Lokalna, ljudska informatička pomoć u Zagrebu. Bez tehničkog preseravanja, s cijenom po dogovoru. Ako nije za mene, reći ću.
+            </p>
+          </div>
 
-        <div className="flex flex-wrap justify-center gap-6 mb-12">
-          <a href={`mailto:${EMAIL_ADDRESS}`} className="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] font-semibold transition-colors">
-            {EMAIL_ADDRESS}
-          </a>
-          <a href={`tel:${PHONE_E164}`} className="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] font-semibold transition-colors">
-            {PHONE_NUMBER_DISPLAY}
-          </a>
-          <a href={WHATSAPP_LINK} className="text-[#25D366] hover:text-[#20bd5a] font-semibold transition-colors">
-            WhatsApp
-          </a>
+          {/* Quick Contact & Location */}
+          <div>
+            <h3 className="text-sm font-semibold tracking-wider text-neutral-900 uppercase">
+              Kontakt i grad
+            </h3>
+            <ul className="mt-4 space-y-3 text-neutral-600">
+              <li>
+                <span className="block font-medium text-neutral-800">Radno područje:</span>
+                Grad Zagreb i bliža okolica
+              </li>
+              <li>
+                <span className="block font-medium mt-2 text-neutral-800">Moje radno vrijeme:</span>
+                Po dogovoru (često i vikendom)
+              </li>
+              <li className="pt-2">
+                <a 
+                  href="mailto:matevukusic123321@gmail.com" 
+                  className="inline-flex items-center text-amber-700 hover:text-amber-800 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2 rounded-sm"
+                >
+                  matevukusic123321@gmail.com
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Fast Links */}
+          <div>
+            <h3 className="text-sm font-semibold tracking-wider text-neutral-900 uppercase">
+              Brze poveznice
+            </h3>
+            <ul className="mt-4 space-y-2 text-neutral-600">
+              <li>
+                <Link href="#usluge" className="hover:text-amber-700 transition-colors">
+                  Što točno radim
+                </Link>
+              </li>
+              <li>
+                <Link href="#cijene" className="hover:text-amber-700 transition-colors">
+                  Okvirne cijene
+                </Link>
+              </li>
+              <li>
+                <Link href="#pitanja" className="hover:text-amber-700 transition-colors">
+                  Česta pitanja
+                </Link>
+              </li>
+              <li>
+                <Link href="#o-meni" className="hover:text-amber-700 transition-colors">
+                  Tko stoji iza ovoga
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="border-t border-[var(--color-border)] pt-8 flex flex-col items-center gap-4">
-          <p className="text-xs text-[var(--color-text-secondary)] max-w-2xl leading-relaxed">
-            <span className="font-semibold text-[var(--color-text-primary)]">Odricanje od odgovornosti: </span> 
-            Usluga je namijenjena osnovnim i srednje zahtjevnim softverskim i hardverskim problemima. Za oštećene komponente, prelomljene matične ploče i spašavanje podataka s potpuno neispravnih diskova obratite se specijaliziranim laboratorijima.
+        <div className="mt-16 flex flex-col items-center justify-between border-t border-neutral-100 pt-8 sm:flex-row">
+          <p className="text-sm text-neutral-500 text-center sm:text-left">
+            &copy; {currentYear} Direkt IT Pomoć Zagreb. Sva prava pridržana.
           </p>
-          <div className="text-xs font-medium text-[var(--color-text-secondary)] mt-4">
-            &copy; {currentYear} IT Pomoć Zagreb
-          </div>
+          <p className="mt-4 text-sm text-neutral-600 sm:mt-0 text-center sm:text-left">
+            Mate (Vrachox) - Osobni projekt za pomoć ljudima.
+          </p>
         </div>
       </div>
     </footer>

@@ -1,5 +1,5 @@
-import { Section } from "./Section";
-import { MessageCircle, Mail, Phone } from "lucide-react";
+﻿import { Section } from "./Section";
+import { MessageCircle, Mail, Phone, ArrowDownRight } from "lucide-react";
 
 const PHONE_NUMBER_DISPLAY = "0994414638";
 const PHONE_E164 = "+385994414638";
@@ -8,61 +8,64 @@ const EMAIL_ADDRESS = "matevukusic123321@gmail.com";
 
 export function ContactCTA() {
   return (
-    <Section id="kontakt" className="bg-[var(--color-bg-primary)] border-t border-[var(--color-border)] py-[var(--spacing-section-mobile)] md:py-[var(--spacing-section)]">
-      <div className="max-w-4xl mx-auto text-center px-6">
-        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[var(--color-text-primary)]">
-          Trebate pomoć? Javite se.
-        </h2>
+    <Section id="kontakt" className="bg-white border-t border-stone-200 py-16 md:py-24">
+      <div className="max-w-4xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         
-        <p className="text-lg md:text-xl text-[var(--color-text-secondary)] mb-10 max-w-2xl mx-auto leading-relaxed">
-          Pošaljite kratko što ne radi, kada je počelo i koji uređaj koristite. Ne morate znati tehničke izraze, samo objasnite vlastitim riječima.
-        </p>
+        <div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-stone-900 leading-tight">
+            Trebate pomoć? Samo se javite.
+          </h2>
+          
+          <p className="text-lg text-stone-600 mb-8 leading-relaxed">
+            Pošaljite mi kratko što ne radi, kada je počelo i koji uređaj koristite. Ne morate znati nikakve tehničke izraze, objasnite točno onako kako vidite.
+          </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+          <div className="relative mt-8">
+            <div className="flex items-center gap-2 mb-3 text-stone-500 font-medium text-sm ml-2">
+              <ArrowDownRight className="w-4 h-4" />
+              Primjer kako poruka može izgledati:
+            </div>
+            <div className="bg-stone-50 p-5 rounded-2xl rounded-tl-sm border border-stone-200 shadow-sm relative w-full sm:w-[90%]">
+              <p className="text-stone-700 font-medium leading-relaxed">
+                &quot;Bok, laptop se sporo pali zadnjih par tjedana, mislim da je Windows 11 gore. Ventilator stalno radi. Želim provjeriti isplati li se to srediti. Zovem se Ivan iz Dubrave.&quot;
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col mb-4 gap-4">
           <a 
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full min-h-[120px] flex flex-col items-center justify-center gap-2 rounded-[var(--radius-button)] bg-[#25D366] p-6 text-white transition-colors hover:bg-[#20bd5a] shadow-[var(--shadow-weightless)]"
+            className="w-full min-h-[64px] flex items-center justify-between px-6 rounded-2xl bg-[#25D366] text-white hover:bg-[#1EBE5D] transition-colors focus:ring-4 focus:ring-[#25D366]/30 shadow-sm"
             aria-label="Pošalji upit preko WhatsAppa"
           >
-            <MessageCircle className="w-8 h-8 mb-1" />
-            <span className="text-lg font-bold">WhatsApp</span>
-            <span className="text-sm font-medium text-white/90">Najbrži odgovor</span>
+            <div className="flex items-center gap-4">
+              <MessageCircle className="w-7 h-7" />
+              <span className="text-lg md:text-xl font-bold">Pošalji poruku na WhatsApp</span>
+            </div>
           </a>
           
           <a 
-            href={`mailto:${EMAIL_ADDRESS}`}
-            className="w-full min-h-[120px] flex flex-col items-center justify-center gap-2 rounded-[var(--radius-button)] bg-[var(--color-bg-surface)] border border-[var(--color-border)] p-6 text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)] shadow-[var(--shadow-weightless)]"
-            aria-label={`Pošalji email na ${EMAIL_ADDRESS}`}
+            href={`tel:${PHONE_E164}`}
+            className="w-full min-h-[64px] flex items-center gap-4 px-6 rounded-2xl border-2 border-stone-200 bg-white text-stone-900 hover:border-stone-300 hover:bg-stone-50 transition-colors focus:ring-4 focus:ring-stone-200"
+            aria-label={`Nazovi ${PHONE_NUMBER_DISPLAY}`}
           >
-            <Mail className="w-8 h-8 text-[var(--color-text-secondary)] mb-1" />
-            <span className="text-lg font-bold">Email</span>
-            <span className="text-sm font-medium text-[var(--color-text-secondary)]">Za dulji opis</span>
+            <Phone className="w-6 h-6 text-stone-500" />
+            <span className="text-lg md:text-xl font-bold">Nazovi {PHONE_NUMBER_DISPLAY}</span>
           </a>
 
           <a 
-            href={`tel:${PHONE_E164}`}
-            className="w-full min-h-[120px] flex flex-col items-center justify-center gap-2 rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-bg-surface)] p-6 text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)] shadow-[var(--shadow-weightless)]"
-            aria-label={`Nazovi ${PHONE_NUMBER_DISPLAY}`}
+            href={`mailto:${EMAIL_ADDRESS}`}
+            className="w-full min-h-[64px] flex items-center gap-4 px-6 rounded-2xl border border-stone-200 bg-white text-stone-600 hover:border-stone-300 hover:bg-stone-50 transition-colors focus:ring-4 focus:ring-stone-200 focus:outline-none"
+            aria-label={`Pošalji email na ${EMAIL_ADDRESS}`}
           >
-            <Phone className="w-8 h-8 text-[var(--color-text-secondary)] mb-1" />
-            <span className="text-lg font-bold">Telefon</span>
-            <span className="text-sm font-medium text-[var(--color-text-secondary)]">{PHONE_NUMBER_DISPLAY}</span>
+            <Mail className="w-6 h-6 text-stone-400" />
+            <span className="text-lg font-medium">{EMAIL_ADDRESS}</span>
           </a>
         </div>
 
-        <div className="mx-auto max-w-xl rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-bg-surface)] p-6 text-left shadow-[var(--shadow-weightless)]">
-          <p className="mb-3 text-sm font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
-            Primjer poruke
-          </p>
-          <div className="bg-[var(--color-bg-primary)] p-4 rounded-lg border border-[var(--color-border)]">
-            <p className="text-base md:text-lg text-[var(--color-text-primary)] font-medium leading-relaxed italic">
-              &quot;Laptop se sporo pali zadnjih par dana. Windows 11 je u pitanju.
-              Trebam provjeru i savjet što se isplati napraviti.&quot;
-            </p>
-          </div>
-        </div>
       </div>
     </Section>
   );

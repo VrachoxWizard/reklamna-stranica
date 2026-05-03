@@ -26,36 +26,33 @@ const problems = [
 
 export function ProblemCards() {
   return (
-    <Section className="bg-[var(--color-bg-primary)] py-[var(--spacing-section-mobile)] md:py-[var(--spacing-section)]">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)] mb-6 shadow-sm">
-            Zašto ste ovdje
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6">
+    <Section className="bg-stone-50 py-16 md:py-24" id="problemi">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-stone-900 mb-6">
             Računalo vas usporava više nego što pomaže?
           </h2>
-          <p className="text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed">
-            Najčešće se ne radi o velikom kvaru, nego o hrpi sitnih softverskih problema koji su se s vremenom nakupili.
+          <p className="text-lg md:text-xl text-stone-600 leading-relaxed max-w-2xl border-l-[3px] border-stone-300 pl-4">
+            Znam kako je. Najčešće se ne radi o velikom kvaru, nego o hrpi sitnih softverskih problema koji su se s vremenom nakupili i usporili sustav.
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="flex flex-col gap-6 md:gap-8">
           {problems.map((problem, index) => {
             const Icon = problem.icon;
             return (
               <div 
                 key={index} 
-                className="flex flex-col sm:flex-row gap-4 lg:gap-6 py-6 border-b border-[var(--color-border)] last:border-0 items-start"
+                className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 bg-white p-6 md:p-8 rounded-2xl border border-stone-200 shadow-sm transition-shadow hover:shadow-md"
               >
-                <div className="flex-shrink-0 w-12 h-12 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-surface)] flex items-center justify-center text-[var(--color-text-primary)] shadow-sm">
-                  <Icon className="w-5 h-5" />
+                <div className="flex-shrink-0 bg-stone-100 p-3 rounded-xl border border-stone-200 mt-1">
+                  <Icon className="w-8 h-8 text-stone-700 stroke-[1.5]" />
                 </div>
-                <div className="flex-1 mt-1">
-                  <h3 className="text-lg md:text-xl font-bold text-[var(--color-text-primary)] mb-2">
-                    {problem.title}
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold mb-2 text-stone-900">
+                    &quot;{problem.title}&quot;
                   </h3>
-                  <p className="text-base text-[var(--color-text-secondary)] leading-relaxed">
+                  <p className="text-stone-600 leading-relaxed text-lg">
                     {problem.description}
                   </p>
                 </div>

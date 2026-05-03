@@ -1,48 +1,27 @@
-import { CheckCircle2 } from "lucide-react";
+import { Section } from "./Section";
 
 export function HonestySection() {
-  const bullets = [
-    "Prije rada dogovaramo okvirnu cijenu",
-    "Objašnjavam problem jednostavnim jezikom",
-    "Ne obećavam ono što ne mogu napraviti",
-    "Ne forsiram nepotrebne popravke",
-    "Fokusiram se na rješenje, a ne na kompliciranje"
-  ];
-
   return (
-    <div className="bg-[#1C1917] py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight text-[#FDFBF7]">
-              Pošten pristup,<br />bez glumljenja velikog servisa.
-            </h2>
-            <div className="space-y-6 text-lg text-[#A8A29E] leading-relaxed">
-              <p>
-                Nisam velika servisna firma i neću se tako predstavljati. Moj fokus su svakodnevni IT problemi: spori Windowsi, osnovna optimizacija, spašavanje slika i ugodno objašnjavanje onima kojima je to potrebno.
-              </p>
-              <p>
-                Ako problem izgleda kao ozbiljan hardverski kvar, poput oštećenog diska iz kojeg se čuje klikanje ili je otišla matična ploča — reći ću vam iskreno da je bolje potražiti specijalizirani servis koji se bavi time.
-              </p>
-            </div>
-          </div>
-
-          <div className="pt-2 lg:pt-0">
-            <ul className="space-y-6">
-              {bullets.map((bullet, index) => (
-                <li key={index} className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 flex items-center text-[var(--color-accent)]">
-                    <CheckCircle2 className="w-6 h-6 stroke-[1.5]" />
-                  </div>
-                  <span className="text-[#FDFBF7] md:text-lg leading-snug pt-1">
-                    {bullet}
-                  </span>
-                </li>
-              ))}
-            </ul>
+    <Section className="bg-white py-16 md:py-24 border-t border-stone-200" id="pristup">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="bg-stone-50 p-8 md:p-12 rounded-3xl border border-stone-200 shadow-sm">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-stone-900 leading-snug">
+            Iskren pristup, bez glumljenja velikog IT servisa.
+          </h2>
+          
+          <div className="space-y-6 text-lg text-stone-700 leading-relaxed">
+            <p>
+              Bok, ja sam Mate. Nisam velika servisna firma, već ciljam pomoći običnim korisnicima sa svakodnevnim frustracijama. Ako vam Windowsi rade sporo, trebate osnovnu optimizaciju, prebacivanje podataka ili vam samo treba netko da vam na miru objasni kako nešto podesiti — tu sam.
+            </p>
+            <p>
+              Princip rada je jednostavan i pošten: prvo porazgovaramo o problemu, napravim brzu procjenu i dogovorimo okvirnu cijenu prije nego što išta počnem raditi. Nema skrivenih troškova. 
+            </p>
+            <p>
+              Isto tako, otvoren sam oko onoga što <strong>ne</strong> nudim. Ne bavim se naprednom hardverskom elektronikom, popravcima poslije prolijevanja kave, instalacijom piratskog softvera niti spašavanjem podataka s fizički krepali diskova. Ako za vaš problem treba specijalizirana oprema, reći ću vam to odmah.
+            </p>
           </div>
         </div>
       </div>
-    </div>
+    </Section>
   );
 }

@@ -1,112 +1,68 @@
-import { Section } from "./Section";
-import { 
-  Settings, 
-  Zap, 
-  ShieldCheck, 
-  Download, 
-  Users, 
-  Database
-} from "lucide-react";
-
-const services = [
-  {
-    title: "Windows optimizacija",
-    description: "Pregled pokretanja sustava, nepotrebnih programa, osnovnih postavki, prostora na disku i stvari koje najčešće usporavaju računalo.",
-    goodFor: ["Sporo paljenje računala", "Spori programi", "Puni disk", "Previše programa u startupu"],
-    icon: Settings,
-  },
-  {
-    title: "Pomoć kod sporog računala",
-    description: "Ako računalo “šteka”, prvo gledamo uzrok: softver, disk, memoriju, previše procesa ili moguće znakove kvara.",
-    goodFor: ["Laptop koji je prije radio bolje", "Računalo koje se zamrzava", "Osnovna dijagnostika performansi", "Savjet treba li nadogradnja"],
-    icon: Zap,
-  },
-  {
-    title: "Backup važnih podataka",
-    description: "Pomoć oko spremanja važnih dokumenata, fotografija i datoteka na vanjski disk, cloud ili drugi siguran način.",
-    goodFor: ["Fotografije i videi", "Važni dokumenti", "Školske i poslovne datoteke", "Priprema prije reinstalacije"],
-    icon: Database,
-  },
-  {
-    title: "Osnovna provjera virusa",
-    description: "Pregled sumnjivih programa, browser dodataka, pop-upova i osnovno uklanjanje neželjenih stvari gdje je to moguće.",
-    note: "Napomena: Kod težih infekcija preporučujem reinstalaciju Windowsa radi sigurnosti.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Instalacija softvera",
-    description: "Pomoć s instalacijom osnovnih programa, preglednika, uredskih alata, PDF čitača i aplikacija za rad.",
-    goodFor: ["Firefox / Chrome / Edge", "Office / LibreOffice", "PDF alati", "Zoom / Teams / Email"],
-    icon: Download,
-  },
-  {
-    title: "IT pomoć za početnike",
-    description: "Objašnjenje problema normalnim jezikom, bez ismijavanja i bez pretpostavke da “to već morate znati”.",
-    goodFor: ["Starije korisnike", "Treću životnu dob", "Početnike", "Sve koji se boje kliknuti"],
-    icon: Users,
-  }
-];
+﻿import { Section } from "./Section";
 
 export function ServicesGrid() {
   return (
-    <Section id="usluge" className="bg-[var(--color-bg-surface)] py-[var(--spacing-section-mobile)] md:py-[var(--spacing-section)] border-t border-[var(--color-border)]">
-      <div className="mb-12 md:mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6">
-          Kako vam točno mogu pomoći?
-        </h2>
-        <p className="text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed max-w-2xl">
-          Radim stvari koje muče većinu kućnih korisnika — od čišćenja do prebacivanja slika. Ne nudim sve, ali ono što nudim radim pošteno.
-        </p>
-      </div>
+    <Section id="usluge" className="bg-white py-20 sm:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-medium tracking-tight text-neutral-900 sm:text-4xl">
+            S čim vam konkretno mogu pomoći?
+          </h2>
+          <p className="mt-4 text-lg text-neutral-600">
+            Nisam korporativni servis. Fokusiram se na svakodnevne stvari koje izluđuju normalne ljude dok koriste svoja računala kod kuće ili u malom uredu.
+          </p>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-        {services.map((service, index) => {
-          const Icon = service.icon;
-          const isFeatured = index === 0 || index === 2; // Making specific items span 2 columns
+        {/* Staggered, warm, conversational layout instead of standard 3-column AI grid */}
+        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           
-          return (
-            <div 
-              key={index} 
-              className={`flex flex-col p-6 rounded-[var(--radius-card)] bg-[var(--color-bg-primary)] border border-[var(--color-border)] shadow-[var(--shadow-weightless)] ${isFeatured ? 'md:col-span-2' : 'md:col-span-1'}`}
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-10 h-10 flex-shrink-0 rounded-lg bg-[var(--color-bg-primary)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-primary)]">
-                  <Icon className="w-5 h-5" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)]">
-                  {service.title}
-                </h3>
-              </div>
-              
-              <p className="text-base text-[var(--color-text-secondary)] mb-6 leading-relaxed">
-                {service.description}
-              </p>
-              
-              {service.goodFor && (
-                <div>
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-secondary)] mb-3">
-                    Najčešće riješavam:
-                  </h4>
-                  <ul className="flex flex-wrap gap-2">
-                    {service.goodFor.map((item, i) => (
-                      <li key={i} className="inline-flex items-center rounded-full bg-[var(--color-bg-primary)] border border-[var(--color-border)] px-3 py-1 text-sm font-medium text-[var(--color-text-secondary)]">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {service.note && (
-                <div className="mt-4 p-4 border-l-2 border-[var(--color-text-secondary)] bg-[var(--color-bg-primary)]">
-                  <p className="text-sm font-medium italic text-[var(--color-text-secondary)]">
-                    {service.note}
-                  </p>
-                </div>
-              )}
+          {/* Card 1: Large emphasis */}
+          <div className="rounded-3xl bg-[#FAF9F6] p-8 sm:p-10 lg:col-span-7 flex flex-col justify-center border border-neutral-200/50">
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-amber-800">
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+              </svg>
             </div>
-          );
-        })}
+            <h3 className="text-2xl font-medium text-neutral-900">Ubrzavanje i oživljavanje Windowsa</h3>
+            <p className="mt-4 text-neutral-600 leading-relaxed text-lg">
+              Ako se kompjuter pali 10 minuta i ne možete otvoriti browser bez zaleđivanja, tu sam. Gasim nepotrebne procese, čistim smeće, brišem programe koji se pale sami od sebe i podešavam sustav da prodiše. Radim &quot;refresh&quot; bez gubljenja vaših podataka.
+            </p>
+          </div>
+
+          {/* Card 2: Medium */}
+          <div className="rounded-3xl bg-neutral-50 p-8 sm:p-10 lg:col-span-5 border border-neutral-100 flex flex-col">
+            <h3 className="text-xl font-medium text-neutral-900">Spašavanje fileova (Backup)</h3>
+            <p className="mt-4 text-neutral-600 leading-relaxed flex-grow">
+              Prije nego išta teže radimo, vadim vaše slike, dokumente i foldere na sigurno. Pomažem vam smanjiti kaos na desktopu i organizirati podatke usput.
+            </p>
+          </div>
+
+          {/* Card 3: Medium */}
+          <div className="rounded-3xl bg-neutral-50 p-8 sm:p-10 lg:col-span-4 border border-neutral-100">
+            <h3 className="text-xl font-medium text-neutral-900">Početno slaganje programa</h3>
+            <p className="mt-4 text-neutral-600 leading-relaxed">
+              Trebate kupili novi laptop pa ne znate otkud krenuti? Podešavam e-mailove, instaliram preglednike po vašoj želji, stavljam Office alternative, PDF čitače i sve osnovno da laptop bude odmah spreman.
+            </p>
+          </div>
+
+          {/* Card 4: Detailed Text block */}
+          <div className="rounded-3xl bg-[#FAF9F6]/50 p-8 sm:p-10 lg:col-span-4 border border-neutral-200/50">
+            <h3 className="text-xl font-medium text-neutral-900">Pomoć oko interneta i opreme</h3>
+            <p className="mt-4 text-neutral-600 leading-relaxed">
+              Zezaju vas postavke, pisač odjednom neće isprintati, Wi-Fi se gubi, ili niste sigurni kako spojiti novi ekran? Rješavam probleme lokalne periferije bez stresa, korak po korak.
+            </p>
+          </div>
+
+          {/* Card 5: Medium */}
+          <div className="rounded-3xl bg-neutral-50 p-8 sm:p-10 lg:col-span-4 border border-neutral-100">
+            <h3 className="text-xl font-medium text-neutral-900">Prijevara i virus čišćenje</h3>
+            <p className="mt-4 text-neutral-600 leading-relaxed">
+              Stalno vam iskaču obavijesti da je &quot;računalo zaraženo&quot; u kutu ekrana? Maknut ćemo lažna upozorenja, očistiti zlonamjerne ekstenzije iz preglednika i ugasiti te iritantne iskočne prozore.
+            </p>
+          </div>
+
+        </div>
       </div>
     </Section>
   );
