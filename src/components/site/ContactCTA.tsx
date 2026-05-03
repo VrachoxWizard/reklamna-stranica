@@ -8,15 +8,15 @@ const EMAIL_ADDRESS = "matevukusic123321@gmail.com";
 
 export function ContactCTA() {
   return (
-    <Section id="kontakt" className="bg-white border-t border-emerald-200 py-16 md:py-24">
+    <Section id="kontakt" className="bg-white border-t border-stone-200 py-16 md:py-24">
       <div className="max-w-4xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         
         <div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-emerald-950 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-stone-950 leading-tight">
             Trebate pomoć? Samo se javite.
           </h2>
           
-          <p className="text-lg text-emerald-800 mb-8 leading-relaxed">
+          <p className="text-lg text-stone-800 mb-8 leading-relaxed">
             Pošaljite mi kratko što ne radi, kada je počelo i koji uređaj koristite. Ne morate znati nikakve tehničke izraze, objasnite točno onako kako vidite.
           </p>
 
@@ -25,8 +25,8 @@ export function ContactCTA() {
               <ArrowDownRight className="w-4 h-4" />
               Primjer kako poruka može izgledati:
             </div>
-            <div className="bg-emerald-50 p-5 rounded-2xl rounded-tl-sm border border-emerald-200 shadow-sm relative w-full sm:w-[90%]">
-              <p className="text-emerald-900 font-medium leading-relaxed">
+            <div className="bg-stone-50 p-5 rounded-2xl rounded-tl-sm border border-stone-200 shadow-sm relative w-full sm:w-[90%]">
+              <p className="text-stone-900 font-medium leading-relaxed">
                 &quot;Bok, laptop se sporo pali zadnjih par tjedana, mislim da je Windows 11 gore. Ventilator stalno radi. Želim provjeriti isplati li se to srediti. Zovem se Ivan iz Dubrave.&quot;
               </p>
             </div>
@@ -49,7 +49,7 @@ export function ContactCTA() {
           
           <a 
             href={`tel:${PHONE_E164}`}
-            className="w-full min-h-[64px] flex items-center gap-4 px-6 rounded-2xl border-2 border-emerald-200 bg-white text-emerald-950 hover:border-emerald-300 hover:bg-emerald-50 transition-colors focus:ring-4 focus:ring-emerald-200"
+            className="w-full min-h-[64px] flex items-center gap-4 px-6 rounded-2xl border-2 border-stone-200 bg-white text-stone-950 hover:border-stone-300 hover:bg-stone-50 transition-colors focus:ring-4 focus:ring-stone-200"
             aria-label={`Nazovi ${PHONE_NUMBER_DISPLAY}`}
           >
             <Phone className="w-6 h-6 text-emerald-700" />
@@ -58,10 +58,10 @@ export function ContactCTA() {
 
           <a 
             href={`mailto:${EMAIL_ADDRESS}`}
-            className="w-full min-h-[64px] flex items-center gap-4 px-6 rounded-2xl border border-emerald-200 bg-white text-emerald-800 hover:border-emerald-300 hover:bg-emerald-50 transition-colors focus:ring-4 focus:ring-emerald-200 focus:outline-none"
+            className="w-full min-h-[64px] flex items-center gap-4 px-6 rounded-2xl border border-stone-200 bg-white text-stone-800 hover:border-stone-300 hover:bg-stone-50 transition-colors focus:ring-4 focus:ring-stone-200 focus:outline-none"
             aria-label={`Pošalji email na ${EMAIL_ADDRESS}`}
           >
-            <Mail className="w-6 h-6 text-emerald-600" />
+            <Mail className="w-6 h-6 text-stone-600" />
             <span className="text-lg font-medium">{EMAIL_ADDRESS}</span>
           </a>
         </div>

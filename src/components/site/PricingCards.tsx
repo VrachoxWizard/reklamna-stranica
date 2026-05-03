@@ -55,12 +55,12 @@ const packages = [
 
 export function PricingCards() {
   return (
-    <Section id="cijene" className="bg-emerald-50 py-16 md:py-24 border-t border-emerald-200">
+    <Section id="cijene" className="bg-stone-50 py-16 md:py-24 border-t border-stone-200">
       <div className="mb-10 max-w-3xl px-6 md:px-0">
-        <h2 className="text-3xl md:text-5xl font-bold text-emerald-950 mb-6">
+        <h2 className="text-3xl md:text-5xl font-bold text-stone-950 mb-6">
           Okvirne cijene
         </h2>
-        <p className="text-lg md:text-xl text-emerald-800 leading-relaxed border-l-[3px] border-emerald-300 pl-4">
+        <p className="text-lg md:text-xl text-stone-800 leading-relaxed border-l-[3px] border-stone-300 pl-4">
           Bez neugodnih iznenađenja. Uvijek prvo napravimo kratku procjenu pa se dogovorimo prije početka rada.
         </p>
       </div>
@@ -74,7 +74,7 @@ export function PricingCards() {
             className={`relative flex-none w-[85vw] sm:w-[320px] md:w-auto flex flex-col p-5 md:p-6 rounded-lg transition-all duration-200 snap-center ${
               isFeatured 
                 ? 'bg-white border-[2px] border-emerald-700' 
-                : 'bg-white border border-emerald-200'
+                : 'bg-white border border-stone-200'
             }`}
           >
             {pkg.badge && (
@@ -86,23 +86,23 @@ export function PricingCards() {
             )}
             
             <div className="mb-5">
-              <h3 className="text-lg md:text-xl font-bold text-emerald-950 mb-2">
+              <h3 className="text-lg md:text-xl font-bold text-stone-950 mb-2">
                 {pkg.title}
               </h3>
-              <div className="text-2xl md:text-3xl font-extrabold text-emerald-950 mb-3">
+              <div className="text-2xl md:text-3xl font-extrabold text-stone-950 mb-3">
                 {pkg.price}
               </div>
-              <p className="text-sm text-emerald-800 leading-relaxed min-h-[60px]">
+              <p className="text-sm text-stone-800 leading-relaxed min-h-[60px]">
                 {pkg.description}
               </p>
             </div>
             
-            <div className="flex-grow pt-4 border-t border-emerald-100">
+            <div className="flex-grow pt-4 border-t border-stone-100">
               <ul className="space-y-2.5 mb-6">
                 {pkg.includes.map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-sm">
                     <Check className="w-4 h-4 mt-0.5 shrink-0 text-emerald-700" />
-                    <span className="font-medium text-emerald-800">
+                    <span className="font-medium text-stone-800">
                       {item}
                     </span>
                   </li>
@@ -112,8 +112,8 @@ export function PricingCards() {
             <div className="mt-auto">
               <a href="#kontakt" className={`flex w-full min-h-[44px] items-center justify-center text-center px-4 rounded-lg font-bold text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${
                 isFeatured 
-                  ? 'bg-emerald-700 text-white hover:bg-emerald-800 focus:ring-emerald-700' 
-                  : 'bg-emerald-50 border border-emerald-200 text-emerald-950 hover:bg-emerald-100 focus:ring-emerald-950'
+                  ? 'bg-emerald-700 text-white hover:bg-stone-800 focus:ring-emerald-700' 
+                  : 'bg-stone-50 border border-stone-200 text-stone-950 hover:bg-stone-100 focus:ring-stone-950'
               }`}>
                 Zatraži ovu uslugu
               </a>
@@ -122,11 +122,11 @@ export function PricingCards() {
         )})}
       </div>
 
-      <div className="mt-4 p-5 md:p-6 bg-white border border-emerald-200 rounded-lg flex flex-col md:flex-row gap-4 items-start max-w-4xl mx-6 md:mx-0">
-        <Info className="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" />
+      <div className="mt-4 p-5 md:p-6 bg-white border border-stone-200 rounded-lg flex flex-col md:flex-row gap-4 items-start max-w-4xl mx-6 md:mx-0">
+        <Info className="w-6 h-6 text-stone-600 shrink-0 mt-0.5" />
         <div>
-          <p className="text-emerald-900 leading-relaxed">
-            <span className="font-bold text-emerald-950">Važna napomena: </span>
+          <p className="text-stone-900 leading-relaxed">
+            <span className="font-bold text-stone-950">Važna napomena: </span>
             Ove cijene su okvirne i služe za orijentaciju. Ovise o konkretnom uređaju i dubini problema. Ako se tijekom pregleda pokaže da je problem kompliciraniji ili zahtijeva servisne dijelove, prvo ću vam sve objasniti i dati točnu cijenu nastavka rada. Ništa se ne radi na silu.
           </p>
         </div>
