@@ -8,7 +8,7 @@ export function MobileStickyCTA() {
           href="#kontakt"
           className="flex-1 rounded-lg bg-[var(--color-accent)] px-4 py-3.5 text-center font-semibold text-white shadow-sm transition-transform active:scale-95 min-h-[48px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2"
         >
-          Upit
+          Pošalji upit
         </Link>
         
         <Link 

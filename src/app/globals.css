@@ -16,8 +16,8 @@
   --color-amber: #D97706;
   --color-amber-light: #FFFBEB;
   
-  --color-border: #E2E8F0;
-  --color-border-strong: #CBD5E1;
+  --color-border: #E7E5E4;
+  --color-border-strong: #D6D3D1;
 
   --spacing-section: 8rem;
   --spacing-section-mobile: 5rem;
@@ -31,9 +31,6 @@
   --shadow-weightless: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-weightless-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 
-  --radius-2xl: 0.5rem;
-  --radius-3xl: 0.75rem;
-  
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }

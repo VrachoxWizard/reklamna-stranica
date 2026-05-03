@@ -73,13 +73,13 @@ export function PricingCards() {
             key={index} 
             className={`relative flex-none w-[85vw] sm:w-[320px] md:w-auto flex flex-col p-5 md:p-6 rounded-lg transition-all duration-200 snap-center ${
               isFeatured 
-                ? 'bg-white border-[2px] border-emerald-700' 
+                ? 'bg-white border-[2px] border-[var(--color-accent)]' 
                 : 'bg-white border border-stone-200'
             }`}
           >
             {pkg.badge && (
               <div className="mb-3">
-                <span className="text-emerald-700 text-xs font-bold uppercase tracking-wider">
+                <span className="text-[var(--color-accent)] text-xs font-bold uppercase tracking-wider">
                   {pkg.badge}
                 </span>
               </div>
@@ -95,13 +95,16 @@ export function PricingCards() {
               <p className="text-sm text-stone-800 leading-relaxed min-h-[60px]">
                 {pkg.description}
               </p>
+              <p className="text-xs italic text-stone-500 mt-2">
+                Idealno za: {pkg.bestFor}
+              </p>
             </div>
             
             <div className="flex-grow pt-4 border-t border-stone-100">
               <ul className="space-y-2.5 mb-6">
                 {pkg.includes.map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-sm">
-                    <Check className="w-4 h-4 mt-0.5 shrink-0 text-emerald-700" />
+                    <Check className="w-4 h-4 mt-0.5 shrink-0 text-[var(--color-accent)]" />
                     <span className="font-medium text-stone-800">
                       {item}
                     </span>
@@ -112,10 +115,10 @@ export function PricingCards() {
             <div className="mt-auto">
               <a href="#kontakt" className={`flex w-full min-h-[44px] items-center justify-center text-center px-4 rounded-lg font-bold text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 ${
                 isFeatured 
-                  ? 'bg-emerald-700 text-white hover:bg-stone-800 focus:ring-emerald-700' 
+                  ? 'bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] focus:ring-[var(--color-accent)]' 
                   : 'bg-stone-50 border border-stone-200 text-stone-950 hover:bg-stone-100 focus:ring-stone-950'
               }`}>
-                Zatraži ovu uslugu
+                Pošalji upit
               </a>
             </div>
           </div>

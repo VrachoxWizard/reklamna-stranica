@@ -13,19 +13,19 @@ export function AudienceSection() {
         </p>
 
         <div className="grid gap-6 sm:grid-cols-3 text-left">
-          <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
+          <div className="rounded-lg border border-stone-200 bg-stone-50 p-6">
             <h3 className="mb-2 font-bold text-stone-900">Kućni korisnici</h3>
             <p className="text-stone-600">
               Studenti, zaposleni roditelji ili svakodnevni korisnici s problematičnim laptopom koji &quot;šteka&quot;.
             </p>
           </div>
-          <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
+          <div className="rounded-lg border border-stone-200 bg-stone-50 p-6">
             <h3 className="mb-2 font-bold text-stone-900">Starije osobe</h3>
             <p className="text-stone-600">
               Strpljivo objašnjavam kako nešto funkcionira, bez okretanja očima i nepotrebnih engleskih riječi.
             </p>
           </div>
-          <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6">
+          <div className="rounded-lg border border-stone-200 bg-stone-50 p-6">
             <h3 className="mb-2 font-bold text-stone-900">Mali obrti i freelanceri</h3>
             <p className="text-stone-600">
               Manji uredi kojima treba netko posložiti računala da jednostavno i sigurno rade.
