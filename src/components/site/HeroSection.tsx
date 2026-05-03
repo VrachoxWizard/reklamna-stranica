@@ -1,5 +1,5 @@
 import { Section } from "./Section";
-import { ArrowRight, ShieldCheck, MapPin, Sparkles } from "lucide-react";
+import { ArrowRight, ShieldCheck, MapPin, Sparkles, Clock } from "lucide-react";
 import Image from "next/image";
 
 const TRUST_POINTS = [
@@ -16,7 +16,7 @@ export function HeroSection() {
         {/* Left Content */}
         <div className="lg:col-span-7 flex flex-col items-start">
           {/* Brand/Owner Indicator */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-stone-200 shadow-sm mb-8 md:mb-10 hover:border-[var(--color-accent)] transition-colors cursor-default">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-stone-200 shadow-sm mb-4 md:mb-6 hover:border-[var(--color-accent)] transition-colors cursor-default">
             <div className="w-6 h-6 rounded-full bg-[var(--color-accent)] text-white flex items-center justify-center text-[10px] font-bold">
               M
             </div>
@@ -25,8 +25,16 @@ export function HeroSection() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-stone-950 mb-6 md:mb-8 leading-[1.1] sm:leading-[1.05] max-w-2xl">
-            Računalo <span className="text-[var(--color-accent)]">sporo</span> ili Windows <span className="text-[var(--color-accent)] underline decoration-stone-200 underline-offset-8">zeza</span>?
+          {/* Availability Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-accent-light)] border border-[var(--color-accent)]/20 mb-8 md:mb-10 animate-pulse">
+            <Clock className="w-3.5 h-3.5 text-[var(--color-accent)]" />
+            <span className="text-[10px] sm:text-xs font-bold text-[var(--color-accent)] tracking-wide uppercase">
+              Dostupan danas
+            </span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-stone-950 mb-6 md:mb-8 leading-[1.1] sm:leading-[1.05] max-w-2xl animate-fade-in">
+            Računalo <span className="text-[var(--color-accent)]">sporo</span> ili Windows <span className="text-[var(--color-accent)] underline decoration-2 underline-[var(--color-accent)]/30 decoration-wavy underline-offset-8 animate-gradient-shift">zeza</span>?
           </h1>
 
           <p className="text-lg sm:text-2xl leading-relaxed text-stone-700 mb-10 md:mb-12 max-w-xl font-medium opacity-90">

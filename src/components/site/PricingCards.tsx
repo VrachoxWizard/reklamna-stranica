@@ -1,5 +1,5 @@
 import { Section } from "./Section";
-import { Check, Info, Star } from "lucide-react";
+import { Check, Info, Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 const packages = [
   {
@@ -65,7 +65,15 @@ export function PricingCards() {
         </p>
       </div>
 
-      <div className="flex overflow-x-auto pt-10 pb-12 -mx-5 px-5 lg:mx-0 lg:px-0 lg:grid lg:grid-cols-4 gap-8 snap-x snap-mandatory hide-scrollbars">
+      <div className="relative">
+        {/* Mobile scroll hint - only visible on mobile */}
+        <div className="lg:hidden flex items-center justify-center gap-2 mb-4 text-stone-400 text-xs font-medium">
+          <ChevronLeft className="w-4 h-4" />
+          <span>Prevucite za više opcija</span>
+          <ChevronRight className="w-4 h-4" />
+        </div>
+
+        <div className="flex overflow-x-auto pt-10 pb-12 -mx-5 px-5 lg:mx-0 lg:px-0 lg:grid lg:grid-cols-4 gap-8 snap-x snap-mandatory hide-scrollbars">
         {packages.map((pkg, index) => {
           const isFeatured = pkg.badge === "Najčešći izbor";
           return (
@@ -127,6 +135,7 @@ export function PricingCards() {
             </div>
           </div>
         )})}
+      </div>
       </div>
 
       <div className="mt-12 p-8 bg-white border border-stone-200 rounded-2xl shadow-sm flex flex-col md:flex-row gap-6 items-start max-w-4xl mx-5 lg:mx-0">

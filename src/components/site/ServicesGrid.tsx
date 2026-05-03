@@ -1,6 +1,7 @@
 import { Section } from "./Section";
 import { HardDrive, Zap, MonitorSmartphone, Wifi, ShieldAlert, Check, Sparkles } from "lucide-react";
 import Image from "next/image";
+import { ImageWithSkeleton } from "./ImageWithSkeleton";
 
 const windowsChips = [
   "Startup traje 10+ min",
@@ -51,12 +52,12 @@ export function ServicesGrid() {
           {/* Card 1: Windows Optimization (Major visual anchor) */}
           <div className="rounded-3xl bg-stone-50 lg:col-span-7 flex flex-col border border-stone-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 group">
             <div className="relative h-72 sm:h-96 overflow-hidden">
-              <Image 
-                src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=1074&auto=format&fit=crop" 
-                alt="Tehničar radi na laptopu u čistom okruženju" 
+              <ImageWithSkeleton
+                src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=1074&auto=format&fit=crop"
+                alt="Tehničar radi na laptopu u čistom okruženju"
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 60vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/20 to-transparent" />
               <div className="absolute bottom-8 left-8 right-8">
@@ -96,12 +97,12 @@ export function ServicesGrid() {
           {/* Card 2: Backup (Secondary visual anchor) */}
           <div className="rounded-3xl bg-stone-50 lg:col-span-5 border border-stone-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 group flex flex-col">
             <div className="relative h-56 sm:h-64 overflow-hidden">
-              <Image 
-                src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1170&auto=format&fit=crop" 
-                alt="Sigurnosno kopiranje podataka na eksterni disk" 
+              <ImageWithSkeleton
+                src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1170&auto=format&fit=crop"
+                alt="Sigurnosno kopiranje podataka na eksterni disk"
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-stone-900/10 group-hover:bg-transparent transition-colors duration-500" />
             </div>

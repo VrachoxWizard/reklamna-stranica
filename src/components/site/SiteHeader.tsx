@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
-
-const WHATSAPP_LINK = "https://wa.me/385994414638";
+import { MobileMenu } from "./MobileMenu";
 
 export function SiteHeader() {
   return (
@@ -58,16 +57,8 @@ export function SiteHeader() {
           Pošalji problem
         </a>
 
-        {/* Mobile: WhatsApp icon only */}
-        <a
-          href={WHATSAPP_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-stone-700 hover:bg-stone-100 transition-colors focus:outline-none focus:ring-2 focus:ring-stone-300"
-          aria-label="Kontakt na WhatsApp"
-        >
-          <MessageCircle className="w-5 h-5" aria-hidden="true" />
-        </a>
+        {/* Mobile Menu */}
+        <MobileMenu />
       </div>
     </header>
   );

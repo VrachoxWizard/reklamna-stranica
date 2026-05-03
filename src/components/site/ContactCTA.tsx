@@ -1,5 +1,5 @@
 import { Section } from "./Section";
-import { MessageCircle, Mail, Phone, ArrowDownRight } from "lucide-react";
+import { MessageCircle, Mail, Phone, ArrowDownRight, Clock } from "lucide-react";
 
 const PHONE_NUMBER_DISPLAY = "0994414638";
 const PHONE_E164 = "+385994414638";
@@ -15,10 +15,18 @@ export function ContactCTA() {
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-stone-950 leading-tight">
             Trebate pomoć? Samo se javite.
           </h2>
-          
-          <p className="text-lg text-stone-800 mb-8 leading-relaxed">
+
+          <p className="text-lg text-stone-800 mb-4 leading-relaxed">
             Pošaljite mi kratko što ne radi, kada je počelo i koji uređaj koristite. Ne morate znati nikakve tehničke izraze, objasnite točno onako kako vidite.
           </p>
+
+          {/* Response time indicator */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-accent-light)] border border-[var(--color-accent)]/20 mb-8">
+            <Clock className="w-4 h-4 text-[var(--color-accent)]" />
+            <span className="text-sm font-semibold text-[var(--color-accent)]">
+              Odgovorim u roku od 24h
+            </span>
+          </div>
 
           <div className="relative mt-8">
             <div className="flex items-center gap-2 mb-3 text-[var(--color-accent)] font-medium text-sm ml-2">
@@ -62,7 +70,7 @@ export function ContactCTA() {
             <span className="text-lg md:text-xl font-bold">Nazovi {PHONE_NUMBER_DISPLAY}</span>
           </a>
 
-          <a 
+          <a
             href={`mailto:${EMAIL_ADDRESS}`}
             className="w-full min-h-[64px] flex items-center gap-4 px-8 rounded-2xl border border-stone-200 bg-white text-stone-800 hover:border-stone-300 hover:bg-stone-50 transition-all focus:ring-4 focus:ring-stone-200 focus:outline-none opacity-80 hover:opacity-100"
             aria-label={`Pošalji email na ${EMAIL_ADDRESS}`}
@@ -70,6 +78,40 @@ export function ContactCTA() {
             <Mail className="w-5 h-5 text-stone-600 shrink-0" aria-hidden="true" />
             <span className="text-sm font-medium truncate" title={EMAIL_ADDRESS}>{EMAIL_ADDRESS}</span>
           </a>
+
+          {/* Quick reply buttons */}
+          <div className="mt-6 pt-6 border-t border-stone-100">
+            <p className="text-xs font-bold uppercase tracking-widest text-stone-400 mb-3">Brzi odgovori</p>
+            <div className="flex flex-wrap gap-2">
+              <a
+                href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Sporo računalo - trebam pomoć")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-200 text-sm font-medium text-stone-700 hover:bg-stone-100 hover:border-stone-300 transition-colors focus:outline-none focus:ring-2 focus:ring-stone-200"
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+                Sporo računalo
+              </a>
+              <a
+                href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Windows greška - trebam pomoć")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-200 text-sm font-medium text-stone-700 hover:bg-stone-100 hover:border-stone-300 transition-colors focus:outline-none focus:ring-2 focus:ring-stone-200"
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+                Windows greška
+              </a>
+              <a
+                href={`${WHATSAPP_LINK}?text=${encodeURIComponent("Trebam backup podataka")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-200 text-sm font-medium text-stone-700 hover:bg-stone-100 hover:border-stone-300 transition-colors focus:outline-none focus:ring-2 focus:ring-stone-200"
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+                Backup podataka
+              </a>
+            </div>
+          </div>
         </div>
 
       </div>

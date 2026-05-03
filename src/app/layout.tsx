@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { LocalBusinessJsonLd } from "@/components/seo/LocalBusinessJsonLd";
 import { SiteHeader } from "@/components/site/SiteHeader";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -42,6 +43,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
         <LocalBusinessJsonLd />
+        <ScrollProgress />
         <SiteHeader />
         {children}
       </body>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Section } from "./Section";
 
 type FAQItem = {
@@ -37,6 +37,7 @@ const faqs: FAQItem[] = [
 
 export function FAQAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -84,10 +85,15 @@ export function FAQAccordion() {
                   </span>
                 </button>
                 
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                  }`}
+                <div
+                  ref={(el) => {
+                    contentRefs.current[index] = el;
+                  }}
+                  className="overflow-hidden transition-all duration-300 ease-in-out"
+                  style={{
+                    maxHeight: isOpen ? (contentRefs.current[index]?.scrollHeight || 0) + "px" : "0px",
+                    opacity: isOpen ? "1" : "0",
+                  }}
                 >
                   <div className="px-6 pb-6 text-stone-600 leading-relaxed">
                     {faq.answer}

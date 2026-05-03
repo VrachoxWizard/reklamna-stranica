@@ -1,6 +1,7 @@
 import { Section } from "./Section";
 import { X, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
+import { ImageWithSkeleton } from "./ImageWithSkeleton";
 
 const notIncluded = [
   "Napredno spašavanje podataka s fizički oštećenih diskova",
@@ -52,10 +53,10 @@ export function HonestySection() {
             <div className="relative pb-12 lg:pb-0">
               {/* Image background */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-stone-50 img-card-shadow rotate-1 lg:rotate-3">
-                <Image 
-                  src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?q=80&w=1170&auto=format&fit=crop" 
-                  alt="Ugodan kućni radni stol s laptopom i biljenicama" 
-                  width={500} 
+                <ImageWithSkeleton
+                  src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?q=80&w=1170&auto=format&fit=crop"
+                  alt="Ugodan kućni radni stol s laptopom i biljenicama"
+                  width={500}
                   height={600}
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="w-full h-[500px] object-cover"
