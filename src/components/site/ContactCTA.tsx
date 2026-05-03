@@ -1,4 +1,4 @@
-﻿import { Section } from "./Section";
+import { Section } from "./Section";
 import { MessageCircle, Mail, Phone, ArrowDownRight } from "lucide-react";
 
 const PHONE_NUMBER_DISPLAY = "0994414638";
@@ -33,36 +33,42 @@ export function ContactCTA() {
           </div>
         </div>
 
-        <div className="flex flex-col mb-4 gap-4">
+        <div className="flex flex-col mb-4 gap-5">
           <a 
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full min-h-[64px] flex items-center justify-between px-6 rounded-lg bg-[#25D366] text-white hover:bg-[#1EBE5D] transition-colors focus:ring-4 focus:ring-[#25D366]/30 shadow-sm"
+            className="w-full min-h-[72px] flex items-center justify-between px-8 rounded-2xl bg-[#25D366] text-white hover:bg-[#1EBE5D] transition-all hover:scale-[1.01] active:scale-[0.99] focus:outline-none focus:ring-4 focus:ring-[#25D366]/30 shadow-lg shadow-green-500/10 group"
             aria-label="Pošalji upit preko WhatsAppa"
           >
             <div className="flex items-center gap-4">
-              <MessageCircle className="w-7 h-7" />
-              <span className="text-lg md:text-xl font-bold">Pošalji poruku na WhatsApp</span>
+              <MessageCircle className="w-8 h-8 transition-transform group-hover:rotate-12" />
+              <div className="flex flex-col items-start">
+                <span className="text-lg md:text-xl font-bold leading-none">WhatsApp poruka</span>
+                <span className="text-xs text-white/80 font-medium mt-1">Najbrži odgovor</span>
+              </div>
             </div>
+            <ArrowDownRight className="w-5 h-5 opacity-50" aria-hidden="true" />
           </a>
           
           <a 
             href={`tel:${PHONE_E164}`}
-            className="w-full min-h-[64px] flex items-center gap-4 px-6 rounded-lg border-2 border-stone-200 bg-white text-stone-950 hover:border-stone-300 hover:bg-stone-50 transition-colors focus:ring-4 focus:ring-stone-200"
+            className="w-full min-h-[72px] flex items-center gap-4 px-8 rounded-2xl border-2 border-stone-200 bg-white text-stone-950 hover:border-stone-300 hover:bg-stone-50 transition-all hover:scale-[1.01] active:scale-[0.99] focus:outline-none focus:ring-4 focus:ring-stone-200"
             aria-label={`Nazovi ${PHONE_NUMBER_DISPLAY}`}
           >
-            <Phone className="w-6 h-6 text-[var(--color-accent)]" />
+            <div className="shrink-0 w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center">
+              <Phone className="w-5 h-5 text-[var(--color-accent)]" />
+            </div>
             <span className="text-lg md:text-xl font-bold">Nazovi {PHONE_NUMBER_DISPLAY}</span>
           </a>
 
           <a 
             href={`mailto:${EMAIL_ADDRESS}`}
-            className="w-full min-h-[64px] flex items-center gap-4 px-6 rounded-lg border border-stone-200 bg-white text-stone-800 hover:border-stone-300 hover:bg-stone-50 transition-colors focus:ring-4 focus:ring-stone-200 focus:outline-none"
+            className="w-full min-h-[64px] flex items-center gap-4 px-8 rounded-2xl border border-stone-200 bg-white text-stone-800 hover:border-stone-300 hover:bg-stone-50 transition-all focus:ring-4 focus:ring-stone-200 focus:outline-none opacity-80 hover:opacity-100"
             aria-label={`Pošalji email na ${EMAIL_ADDRESS}`}
           >
-            <Mail className="w-6 h-6 text-stone-600 shrink-0" aria-hidden="true" />
-            <span className="text-sm sm:text-base font-medium truncate" title={EMAIL_ADDRESS}>{EMAIL_ADDRESS}</span>
+            <Mail className="w-5 h-5 text-stone-600 shrink-0" aria-hidden="true" />
+            <span className="text-sm font-medium truncate" title={EMAIL_ADDRESS}>{EMAIL_ADDRESS}</span>
           </a>
         </div>
 

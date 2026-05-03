@@ -643,3 +643,8 @@ The page is acceptable when:
 - no fake claims are present
 - `pnpm build` passes
 - layout does not feel like a generic AI template
+
+Use @essentials skill
+Use @web-wizard skill
+Use @web-designer skill
+Use sequential thinking mcp

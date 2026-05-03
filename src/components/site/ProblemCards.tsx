@@ -48,10 +48,10 @@ export function ProblemCards() {
             return (
               <div
                 key={problem.title}
-                className="flex items-start gap-4 bg-white p-5 md:p-6 rounded-lg border border-stone-200 shadow-sm hover:shadow-md transition-shadow"
+                className="flex items-start gap-4 bg-white p-5 md:p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="shrink-0 bg-stone-100 p-2.5 rounded-lg border border-stone-200 mt-0.5">
-                  <Icon className="w-5 h-5 text-stone-600 stroke-[1.5]" aria-hidden="true" />
+                <div className="shrink-0 bg-[var(--color-accent-light)] p-2.5 rounded-lg border border-stone-200 mt-0.5">
+                  <Icon className="w-5 h-5 text-[var(--color-accent)] stroke-[1.5]" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="text-base font-bold mb-1.5 text-stone-900">

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { Section } from "./Section";
@@ -43,13 +43,13 @@ export function FAQAccordion() {
   };
 
   return (
-    <Section id="pitanja" className="bg-[var(--color-bg-primary)] py-16 sm:py-24">
-      <div className="mx-auto max-w-3xl">
-        <div className="mb-12 text-center md:text-left">
-          <h2 className="text-3xl font-medium tracking-tight text-stone-900 sm:text-4xl">
-            Česta pitanja
+    <Section id="pitanja" className="bg-[#FDFBF7] py-24 md:py-32 border-t border-stone-200">
+      <div className="mx-auto max-w-4xl px-6">
+        <div className="mb-16 md:mb-20 text-center md:text-left">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-stone-950 mb-8 leading-[1.1]">
+            Česta <span className="text-[var(--color-accent)]">pitanja</span>
           </h2>
-          <p className="mt-4 text-lg text-stone-600">
+          <p className="text-xl md:text-2xl text-stone-700 leading-relaxed max-w-2xl font-medium opacity-90 border-l-4 border-stone-200 pl-6">
             Odgovori na ono što me ljudi najčešće pitaju prije nego što se dogovorimo.
           </p>
         </div>
@@ -73,11 +73,11 @@ export function FAQAccordion() {
                   </span>
                   <span className="ml-6 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-stone-50 text-stone-500 group-hover:bg-[var(--color-accent-light)] group-hover:text-[var(--color-accent)] transition-colors">
                     {isOpen ? (
-                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
                       </svg>
                     ) : (
-                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
                       </svg>
                     )}
