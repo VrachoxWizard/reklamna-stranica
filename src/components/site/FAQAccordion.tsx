@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Section } from "./Section";
-import gsap from "gsap";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -43,54 +42,33 @@ const faqs = [
 
 export function FAQAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".faq-reveal", {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-        clearProps: "all",
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
 
   const toggleItem = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <Section className="bg-[var(--color-bg-primary)] overflow-hidden" ref={containerRef}>
-      <div className="mb-20 md:mb-24 max-w-4xl">
-        <div className="faq-reveal inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[var(--color-text-tertiary)] mb-6 shadow-sm">
+    <Section className="bg-[var(--color-bg-primary)] overflow-hidden">
+      <div className="mb-12 md:mb-16 max-w-4xl">
+        <div className="inline-flex items-center gap-2 rounded-md border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--color-text-tertiary)] mb-5">
           FAQ
         </div>
-        <h2 className="faq-reveal text-5xl md:text-6xl font-bold text-[var(--color-text-primary)] mb-8 tracking-tighter leading-[0.95]">
+        <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6 leading-tight">
           Česta pitanja
         </h2>
-        <p className="faq-reveal text-xl md:text-2xl text-[var(--color-text-secondary)] leading-relaxed max-w-2xl font-medium">
+        <p className="text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed max-w-2xl">
           Sve što trebate znati prije nego se javite. Iskreno, direktno i bez tehničkog preseravanja.
         </p>
       </div>
 
-      <div className="max-w-4xl space-y-5">
+      <div className="max-w-4xl space-y-4">
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index;
           return (
             <div 
               key={index} 
               className={cn(
-                "faq-reveal group rounded-[2rem] border transition-all duration-500 overflow-hidden",
+                "group rounded-xl border transition-colors overflow-hidden",
                 isOpen 
                   ? "bg-white border-[var(--color-accent)]/30 shadow-weightless" 
                   : "bg-[var(--color-bg-surface)] border-[var(--color-border)] hover:border-[var(--color-border-strong)]"
@@ -98,20 +76,20 @@ export function FAQAccordion() {
             >
               <button 
                 onClick={() => toggleItem(index)}
-                className="w-full flex items-center justify-between p-8 sm:p-10 text-left focus:outline-none"
+                className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2"
                 aria-expanded={isOpen}
               >
                 <span className={cn(
-                  "text-2xl font-bold tracking-tight transition-all duration-300",
+                  "text-lg md:text-xl font-bold leading-snug transition-colors",
                   isOpen ? "text-[var(--color-accent)]" : "text-[var(--color-text-primary)]"
                 )}>
                   {faq.question}
                 </span>
                 <div className={cn(
-                  "flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500",
-                  isOpen ? "bg-[var(--color-accent)] text-white rotate-180 shadow-lg shadow-[var(--color-accent)]/20" : "bg-[var(--color-bg-primary)] text-[var(--color-text-tertiary)]"
+                  "flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-transform",
+                  isOpen ? "bg-[var(--color-accent)] text-white rotate-180" : "bg-[var(--color-bg-primary)] text-[var(--color-text-tertiary)]"
                 )}>
-                  <ChevronDown className="w-6 h-6 stroke-[3]" />
+                  <ChevronDown className="w-5 h-5 stroke-[3]" />
                 </div>
               </button>
               
@@ -122,8 +100,8 @@ export function FAQAccordion() {
                 )}
               >
                 <div className="overflow-hidden">
-                  <div className="p-8 sm:p-10 pt-0 text-xl text-[var(--color-text-secondary)] leading-relaxed font-medium">
-                    <div className="pt-8 border-t border-[var(--color-border)]/40">
+                  <div className="p-5 sm:p-6 pt-0 text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed">
+                    <div className="pt-5 border-t border-[var(--color-border)]/40">
                       {faq.answer}
                     </div>
                   </div>

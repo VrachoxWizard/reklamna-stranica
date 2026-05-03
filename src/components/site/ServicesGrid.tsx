@@ -1,18 +1,12 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import { Section } from "./Section";
-import gsap from "gsap";
 import { 
   Settings, 
   Zap, 
   ShieldCheck, 
   Download, 
   Users, 
-  Database,
-  ArrowUpRight
+  Database
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const services = [
   {
@@ -20,7 +14,6 @@ const services = [
     description: "Pregled pokretanja sustava, nepotrebnih programa, osnovnih postavki, prostora na disku i stvari koje najčešće usporavaju računalo.",
     goodFor: ["Sporo paljenje računala", "Spori programi", "Puni disk", "Previše programa u startupu"],
     icon: Settings,
-    glass: true,
   },
   {
     title: "Pomoć kod sporog računala",
@@ -39,7 +32,6 @@ const services = [
     description: "Pregled sumnjivih programa, browser dodataka, pop-upova i osnovno uklanjanje neželjenih stvari gdje je to moguće.",
     note: "Ne obećavam “100% uklanjanje svega” kod ozbiljnih infekcija.",
     icon: ShieldCheck,
-    glass: true,
   },
   {
     title: "Instalacija softvera",
@@ -56,84 +48,50 @@ const services = [
 ];
 
 export function ServicesGrid() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".service-card", {
-        scrollTrigger: {
-          trigger: ".service-card",
-          start: "top 92%",
-          toggleActions: "play none none reverse",
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-        clearProps: "all",
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <Section id="usluge" className="bg-[var(--color-bg-primary)] overflow-hidden" ref={containerRef}>
-      <div className="mb-16 md:mb-24 max-w-4xl">
-        <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[var(--color-accent)] mb-6 shadow-sm">
+    <Section id="usluge" className="bg-[var(--color-bg-primary)]">
+      <div className="mb-12 md:mb-16 max-w-4xl">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--color-accent)] mb-6">
           Pregled usluga
         </div>
-        <h2 className="text-5xl md:text-6xl font-bold text-[var(--color-text-primary)] mb-8 tracking-tighter leading-[0.9]">
+        <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6">
           Što točno radim?
         </h2>
-        <p className="text-xl md:text-2xl text-[var(--color-text-secondary)] leading-relaxed max-w-2xl font-medium">
+        <p className="text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed max-w-2xl">
           Fokus je na jednostavnim i srednje zahtjevnim problemima — Windows optimizacija, backup i svakodnevna tehnička pomoć.
         </p>
       </div>
 
-      {/* Bento Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         {services.map((service, index) => {
-          const isWide = index === 0 || index === 3;
           const Icon = service.icon;
           
           return (
             <div 
               key={index} 
-              className={cn(
-                "service-card group relative flex flex-col h-full p-10 rounded-[2.5rem] border border-[var(--color-border)] transition-all duration-500 overflow-hidden",
-                isWide ? "lg:col-span-2" : "lg:col-span-1",
-                service.glass ? "glass shadow-weightless" : "bg-[var(--color-bg-surface)] shadow-card hover:shadow-weightless-hover hover:-translate-y-2"
-              )}
+              className="flex flex-col h-full p-6 md:p-8 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-surface)]"
             >
-              {/* Subtle noise texture */}
-              <div className="absolute inset-0 bg-noise opacity-30 mix-blend-overlay pointer-events-none" />
-              
-              <div className="relative z-10 flex items-start justify-between mb-8">
-                <div className="flex-shrink-0 w-14 h-14 bg-[var(--color-bg-primary)] border border-[var(--color-border)] rounded-2xl flex items-center justify-center text-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:text-white transition-all duration-300 shadow-sm">
-                  <Icon className="w-7 h-7" />
-                </div>
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ArrowUpRight className="w-6 h-6 text-[var(--color-text-tertiary)]" />
+              <div className="flex items-start justify-between mb-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-[var(--color-bg-primary)] border border-[var(--color-border)] rounded-lg flex items-center justify-center text-[var(--color-accent)]">
+                  <Icon className="w-6 h-6" />
                 </div>
               </div>
               
-              <h3 className="relative z-10 text-3xl font-bold text-[var(--color-text-primary)] leading-tight mb-4 tracking-tight">
+              <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-3">
                 {service.title}
               </h3>
               
-              <p className="relative z-10 text-[var(--color-text-secondary)] mb-10 flex-grow text-lg leading-relaxed font-medium">
+              <p className="text-[var(--color-text-secondary)] mb-6 flex-grow leading-relaxed">
                 {service.description}
               </p>
               
               {service.goodFor && (
-                <div className="relative z-10 pt-8 border-t border-[var(--color-border)]/40">
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+                <div className="pt-6 border-t border-[var(--color-border)]">
+                  <ul className="flex flex-col gap-2">
                     {service.goodFor.map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 text-sm font-bold text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" />
-                        {item}
+                      <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] mt-1.5 flex-shrink-0" />
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -141,8 +99,8 @@ export function ServicesGrid() {
               )}
 
               {service.note && (
-                <div className="relative z-10 mt-6 p-5 rounded-2xl bg-[var(--color-bg-primary)]/50 border border-[var(--color-border)]/60 backdrop-blur-sm">
-                  <p className="text-sm font-semibold text-[var(--color-text-secondary)] leading-relaxed italic">
+                <div className="mt-6 p-4 rounded-lg bg-[var(--color-bg-primary)] border border-[var(--color-border)]">
+                  <p className="text-sm text-[var(--color-text-secondary)] italic">
                     {service.note}
                   </p>
                 </div>

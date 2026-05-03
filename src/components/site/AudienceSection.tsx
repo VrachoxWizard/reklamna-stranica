@@ -1,10 +1,5 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import { Section } from "./Section";
-import gsap from "gsap";
 import { Home, Users, GraduationCap, Briefcase } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const audiences = [
   {
@@ -30,58 +25,36 @@ const audiences = [
 ];
 
 export function AudienceSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".audience-reveal", {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 85%",
-          toggleActions: "play none none reverse",
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-        clearProps: "all",
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <Section className="bg-[var(--color-bg-primary)] overflow-hidden" ref={containerRef}>
-      <div className="mb-20 md:mb-24 max-w-4xl">
-        <div className="audience-reveal inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[var(--color-accent)] mb-6 shadow-sm">
+    <Section className="bg-[var(--color-bg-primary)] overflow-hidden">
+      <div className="mb-12 md:mb-16 max-w-4xl">
+        <div className="inline-flex items-center gap-2 rounded-md border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--color-accent)] mb-5">
           Kome pomažem?
         </div>
-        <h2 className="audience-reveal text-5xl md:text-6xl font-bold text-[var(--color-text-primary)] mb-8 tracking-tighter leading-[0.95]">
+        <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6 leading-tight">
           Normalna IT pomoć <br className="hidden md:block" /> za normalne ljude.
         </h2>
-        <p className="audience-reveal text-xl md:text-2xl text-[var(--color-text-secondary)] leading-relaxed max-w-2xl font-medium">
+        <p className="text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed max-w-2xl">
           Nisam servis za velike korporacije, nego za stvarne ljude koji trebaju podršku oko svojih uređaja bez kompliciranja.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
         {audiences.map((audience, index) => {
           const Icon = audience.icon;
           return (
             <div 
               key={index} 
-              className="audience-reveal group flex flex-col sm:flex-row gap-8 p-10 rounded-[2.5rem] border border-[var(--color-border)] bg-[var(--color-bg-surface)] hover:shadow-weightless-hover hover:-translate-y-2 transition-all duration-500"
+              className="group flex flex-col sm:flex-row gap-5 p-6 md:p-8 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-surface)] hover:border-[var(--color-border-strong)] transition-colors"
             >
-              <div className="flex-shrink-0 w-20 h-20 bg-[var(--color-bg-primary)] rounded-[1.5rem] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:text-white transition-all duration-300 shadow-sm">
-                <Icon className="w-10 h-10 stroke-[1.5]" />
+              <div className="flex-shrink-0 w-12 h-12 bg-[var(--color-bg-primary)] rounded-lg border border-[var(--color-border)] flex items-center justify-center text-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:text-white transition-colors">
+                <Icon className="w-6 h-6 stroke-[1.75]" />
               </div>
               <div>
-                <h3 className="text-3xl font-bold text-[var(--color-text-primary)] mb-4 tracking-tight leading-none">
+                <h3 className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)] mb-3 leading-tight">
                   {audience.title}
                 </h3>
-                <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed font-medium">
+                <p className="text-base text-[var(--color-text-secondary)] leading-relaxed">
                   {audience.description}
                 </p>
               </div>

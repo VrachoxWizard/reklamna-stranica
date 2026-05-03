@@ -1,24 +1,21 @@
-import * as React from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 
-interface SectionProps extends React.HTMLAttributes<HTMLElement> {
-  children: React.ReactNode;
+interface SectionProps extends HTMLAttributes<HTMLElement> {
+  children: ReactNode;
   containerClassName?: string;
 }
 
-export const Section = React.forwardRef<HTMLElement, SectionProps>(
-  ({ children, className = "", containerClassName = "", ...props }, ref) => {
-    return (
-      <section
-        ref={ref}
-        className={`py-14 md:py-20 ${className}`}
-        {...props}
-      >
-        <div className={`mx-auto max-w-6xl px-5 ${containerClassName}`}>
-          {children}
-        </div>
-      </section>
-    );
-  }
-);
-
-Section.displayName = "Section";
+export function Section({
+  children,
+  className = "",
+  containerClassName = "",
+  ...props
+}: SectionProps) {
+  return (
+    <section className={`py-14 md:py-20 ${className}`} {...props}>
+      <div className={`mx-auto max-w-6xl px-5 ${containerClassName}`}>
+        {children}
+      </div>
+    </section>
+  );
+}

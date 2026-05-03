@@ -1,59 +1,41 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg-primary: #FDFBF7;
+  --color-bg-primary: #F9F8F6;
   --color-bg-surface: #FFFFFF;
-  --color-bg-muted: #F5F5F4;
+  --color-bg-muted: #F3F1EF;
   
-  --color-text-primary: #1C1917;
-  --color-text-secondary: #57534E;
-  --color-text-tertiary: #A8A29E;
+  --color-text-primary: #1F2933;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #94A3B8;
   
-  --color-accent: #D9664D;
-  --color-accent-hover: #C2553D;
-  --color-accent-light: #FDF4F2;
+  --color-accent: #0F766E;
+  --color-accent-hover: #0D655E;
+  --color-accent-light: #F0FDF4;
   
   --color-amber: #D97706;
   --color-amber-light: #FFFBEB;
   
-  --color-border: #E7E5E4;
-  --color-border-strong: #D6D3D1;
+  --color-border: #E2E8F0;
+  --color-border-strong: #CBD5E1;
 
-  --spacing-section: 8rem;
-  --spacing-section-mobile: 5rem;
+  --spacing-section: 6rem;
+  --spacing-section-mobile: 4rem;
 
-  --radius-card: 1.5rem;
-  --radius-button: 0.75rem;
-  --radius-badge: 0.5rem;
+  --radius-card: 0.5rem;
+  --radius-button: 0.375rem;
+  --radius-badge: 0.25rem;
   
-  --shadow-card: 0 4px 20px -2px rgba(28,25,23,0.04), 0 2px 8px -1px rgba(28,25,23,0.02);
-  --shadow-card-hover: 0 20px 40px -4px rgba(28,25,23,0.08), 0 8px 16px -2px rgba(28,25,23,0.04);
-  --shadow-weightless: 0 30px 60px rgba(28, 25, 23, 0.04), 0 1px 3px rgba(28, 25, 23, 0.01);
-  --shadow-weightless-hover: 0 40px 80px rgba(28, 25, 23, 0.08), 0 2px 6px rgba(28, 25, 23, 0.02);
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-weightless: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-weightless-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 
-  --radius-2xl: 1.5rem;
-  --radius-3xl: 2rem;
+  --radius-2xl: 0.5rem;
+  --radius-3xl: 0.75rem;
   
   --font-sans: var(--font-jakarta);
   --font-heading: var(--font-outfit);
-}
-
-@utility bg-noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-
-@utility glass {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-@utility glass-dark {
-  background: rgba(28, 25, 23, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -68,13 +50,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3 {
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
-.reveal {
-  opacity: 0;
+/* Base card styling */
+.service-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.no-js .reveal {
-  opacity: 1 !important;
+.service-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-border-strong);
 }
