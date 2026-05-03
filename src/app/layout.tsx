@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { LocalBusinessJsonLd } from "@/components/seo/LocalBusinessJsonLd";
+import { SiteHeader } from "@/components/site/SiteHeader";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -21,14 +22,11 @@ export const metadata: Metadata = {
     siteName: "Direkt IT Pomoć Zagreb",
     locale: "hr_HR",
     type: "website",
-    images: [
-      {
-        url: "/images/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "IT Pomoć Zagreb",
-      },
-    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IT pomoć i servis računala Zagreb",
+    description: "Poštena i razumljiva IT pomoć za računala i laptope u Zagrebu.",
   },
 };
 
@@ -44,6 +42,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
         <LocalBusinessJsonLd />
+        <SiteHeader />
         {children}
       </body>
     </html>

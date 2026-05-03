@@ -43,13 +43,13 @@ export function FAQAccordion() {
   };
 
   return (
-    <Section id="pitanja" className="bg-[#FAF9F6] py-16 sm:py-24">
+    <Section id="pitanja" className="bg-[var(--color-bg-primary)] py-16 sm:py-24">
       <div className="mx-auto max-w-3xl">
         <div className="mb-12 text-center md:text-left">
-          <h2 className="text-3xl font-medium tracking-tight text-neutral-900 sm:text-4xl">
+          <h2 className="text-3xl font-medium tracking-tight text-stone-900 sm:text-4xl">
             Česta pitanja
           </h2>
-          <p className="mt-4 text-lg text-neutral-600">
+          <p className="mt-4 text-lg text-stone-600">
             Odgovori na ono što me ljudi najčešće pitaju prije nego što se dogovorimo.
           </p>
         </div>
@@ -60,18 +60,18 @@ export function FAQAccordion() {
             return (
               <div 
                 key={index}
-                className="group rounded-2xl border border-neutral-200/60 bg-white transition-colors duration-200 hover:border-neutral-300"
+                className="group rounded-lg border border-stone-200/60 bg-white transition-colors duration-200 hover:border-stone-300"
               >
                 <button
                   type="button"
                   onClick={() => toggle(index)}
-                  className="flex w-full items-center justify-between px-6 py-5 text-left min-h-[60px] rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2"
+                  className="flex w-full items-center justify-between px-6 py-5 text-left min-h-[60px] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-lg font-medium text-neutral-800">
+                  <span className="text-lg font-medium text-stone-800">
                     {faq.question}
                   </span>
-                  <span className="ml-6 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-neutral-50 text-neutral-500 group-hover:bg-amber-50 group-hover:text-amber-700 transition-colors">
+                  <span className="ml-6 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-stone-50 text-stone-500 group-hover:bg-[var(--color-accent-light)] group-hover:text-[var(--color-accent)] transition-colors">
                     {isOpen ? (
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4" />
@@ -89,7 +89,7 @@ export function FAQAccordion() {
                     isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="px-6 pb-6 text-neutral-600 leading-relaxed">
+                  <div className="px-6 pb-6 text-stone-600 leading-relaxed">
                     {faq.answer}
                   </div>
                 </div>
