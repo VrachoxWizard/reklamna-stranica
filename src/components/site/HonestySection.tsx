@@ -7,11 +7,11 @@ export function HonestySection() {
       <div className="max-w-4xl mx-auto px-6">
         <div className="bg-stone-50 p-8 md:p-12 rounded-lg border border-stone-200 grid grid-cols-1 md:grid-cols-[1fr_280px] gap-8 items-start">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-stone-900 leading-snug">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-stone-950 leading-snug">
               Iskren pristup, bez glumljenja velikog IT servisa.
             </h2>
             
-            <div className="space-y-6 text-lg text-stone-700 leading-relaxed">
+            <div className="space-y-6 text-lg text-stone-900 leading-relaxed">
               <p>
                 Bok, ja sam Mate. Nisam velika servisna firma, već ciljam pomoći običnim korisnicima sa svakodnevnim frustracijama. Ako vam Windowsi rade sporo, trebate osnovnu optimizaciju, prebacivanje podataka ili vam samo treba netko da vam na miru objasni kako nešto podesiti — tu sam.
               </p>
