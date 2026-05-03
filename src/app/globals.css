@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-primary: #FDFBF7;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-muted: #F5F5F4;
+  
+  --color-text-primary: #1C1917;
+  --color-text-secondary: #57534E;
+  --color-text-tertiary: #A8A29E;
+  
+  --color-accent: #D9664D;
+  --color-accent-hover: #C2553D;
+  --color-accent-light: #FDF4F2;
+  
+  --color-amber: #D97706;
+  --color-amber-light: #FFFBEB;
+  
+  --color-border: #E7E5E4;
+  --color-border-strong: #D6D3D1;
+
+  --spacing-section: 8rem;
+  --spacing-section-mobile: 5rem;
+
+  --radius-card: 1.5rem;
+  --radius-button: 0.75rem;
+  --radius-badge: 0.5rem;
+  
+  --shadow-card: 0 4px 20px -2px rgba(28,25,23,0.04), 0 2px 8px -1px rgba(28,25,23,0.02);
+  --shadow-card-hover: 0 20px 40px -4px rgba(28,25,23,0.08), 0 8px 16px -2px rgba(28,25,23,0.04);
+  --shadow-weightless: 0 30px 60px rgba(28, 25, 23, 0.04), 0 1px 3px rgba(28, 25, 23, 0.01);
+  --shadow-weightless-hover: 0 40px 80px rgba(28, 25, 23, 0.08), 0 2px 6px rgba(28, 25, 23, 0.02);
+
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  
+  --font-sans: var(--font-jakarta);
+  --font-heading: var(--font-outfit);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+@utility glass {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@utility glass-dark {
+  background: rgba(28, 25, 23, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.03em;
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.no-js .reveal {
+  opacity: 1 !important;
 }
