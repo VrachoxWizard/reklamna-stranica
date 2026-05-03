@@ -1,5 +1,6 @@
 ﻿import { Section } from "./Section";
 import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
+import Image from "next/image";
 
 export function HeroSection() {
   return (
@@ -44,52 +45,17 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Right — Composition (Work Ticket) */}
-        <div className="relative w-full aspect-[4/3] sm:aspect-square lg:aspect-[4/5] flex items-center justify-center p-4 sm:p-8 lg:p-12">
-          
-          {/* Main "Work Order" Ticket */}
-          <div className="relative w-full max-w-[340px] bg-white rounded-md border border-stone-200 p-5 sm:p-6 lg:p-8">
-            {/* Header snippet */}
-            <div className="border-b border-dashed border-stone-200 pb-3 mb-4 flex justify-between items-center">
-              <span className="text-[10px] font-mono text-stone-500 uppercase tracking-widest">
-                Radni Nalog #024
-              </span>
-              <span className="text-[10px] font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded-sm uppercase tracking-widest border border-teal-200">
-                Riješeno
-              </span>
-            </div>
-
-            {/* Diagnostic content mimicking an actual ticket */}
-            <div className="space-y-4 mb-6">
-              <div>
-                <p className="text-[11px] font-semibold text-stone-500 uppercase tracking-wider mb-0.5">Problem</p>
-                <p className="text-sm font-medium text-stone-900 leading-snug">
-                  Laptop se jako sporo pali, otvara preglednik 5 minuta. Pojavile se Windows greške.
-                </p>
-              </div>
-
-              <div>
-                <p className="text-[11px] font-semibold text-stone-500 uppercase tracking-wider mb-0.5">Napomena stranke</p>
-                <div className="bg-amber-50 border-l-2 border-amber-500 p-2.5 rounded-r-sm">
-                  <p className="text-sm text-stone-700 italic leading-snug">
-                    &quot;Obavezno spasiti slike s Desktopa prije čišćenja!&quot;
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Footer pricing info */}
-            <div className="border-t border-stone-200 pt-4 mt-auto">
-              <div className="flex justify-between items-end">
-                <div>
-                  <p className="text-[11px] font-semibold text-stone-500 uppercase tracking-wider mb-0.5">Okvirna cijena</p>
-                  <p className="text-xl font-bold text-stone-900">45 €</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-xs text-stone-500 font-medium">Dogovoreno unaprijed</p>
-                </div>
-              </div>
-            </div>
+        {/* Right — Composition (Image) */}
+        <div className="relative w-full aspect-[4/3] sm:aspect-[4/3] lg:aspect-[4/5] flex items-center justify-center p-0 lg:p-4">
+          <div className="relative w-full h-full min-h-[300px] lg:min-h-[500px] rounded-lg border border-stone-200 overflow-hidden shadow-sm">
+            <Image 
+              src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=800&h=1000&q=80" 
+              alt="Popravak i čišćenje računala u Zagrebu" 
+              fill 
+              priority
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
         </div>
       </div>
