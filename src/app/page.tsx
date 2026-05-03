@@ -17,8 +17,8 @@ export default function Home() {
         <HeroSection />
         <ProblemCards />
         <ServicesGrid />
-        <ProcessSteps />
         <PricingCards />
+        <ProcessSteps />
         <HonestySection />
         <AudienceSection />
         <FAQAccordion />

@@ -8,71 +8,60 @@ const EMAIL_ADDRESS = "matevukusic123321@gmail.com";
 
 export function ContactCTA() {
   return (
-    <Section id="kontakt" className="bg-stone-900 text-white relative py-20 md:py-28">
+    <Section id="kontakt" className="bg-[var(--color-bg-primary)] border-t border-[var(--color-border)] py-[var(--spacing-section-mobile)] md:py-[var(--spacing-section)]">
       <div className="max-w-4xl mx-auto text-center px-6">
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-stone-300 mb-6">
-          Kontaktirajte me
-        </div>
-        
-        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-          Niste sigurni što nije u redu?
+        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[var(--color-text-primary)]">
+          Trebate pomoć? Javite se.
         </h2>
         
-        <p className="text-lg md:text-xl text-stone-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-          Pošaljite kratko što ne radi, kada je počelo i koji uređaj koristite.
+        <p className="text-lg md:text-xl text-[var(--color-text-secondary)] mb-10 max-w-2xl mx-auto leading-relaxed">
+          Pošaljite kratko što ne radi, kada je počelo i koji uređaj koristite. Ne morate znati tehničke izraze, samo objasnite vlastitim riječima.
         </p>
 
-        <div className="grid gap-4 sm:grid-cols-3 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           <a 
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex min-h-20 items-center justify-center gap-3 rounded-lg bg-[#25D366] px-6 py-4 text-white transition-colors hover:bg-[#20bd5a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="w-full min-h-[120px] flex flex-col items-center justify-center gap-2 rounded-[var(--radius-button)] bg-[#25D366] p-6 text-white transition-colors hover:bg-[#20bd5a] shadow-[var(--shadow-weightless)]"
             aria-label="Pošalji upit preko WhatsAppa"
           >
-            <MessageCircle className="w-6 h-6" />
-            <span className="text-left">
-              <span className="block text-lg font-bold">WhatsApp</span>
-              <span className="block text-sm font-medium text-white/90">Najbrži upit</span>
-            </span>
+            <MessageCircle className="w-8 h-8 mb-1" />
+            <span className="text-lg font-bold">WhatsApp</span>
+            <span className="text-sm font-medium text-white/90">Najbrži odgovor</span>
           </a>
           
           <a 
             href={`mailto:${EMAIL_ADDRESS}`}
-            className="flex min-h-20 items-center justify-center gap-3 rounded-lg bg-white px-6 py-4 text-stone-900 transition-colors hover:bg-stone-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="w-full min-h-[120px] flex flex-col items-center justify-center gap-2 rounded-[var(--radius-button)] bg-[var(--color-bg-surface)] border border-[var(--color-border)] p-6 text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)] shadow-[var(--shadow-weightless)]"
             aria-label={`Pošalji email na ${EMAIL_ADDRESS}`}
           >
-            <Mail className="w-6 h-6" />
-            <span className="text-left">
-              <span className="block text-lg font-bold">Email</span>
-              <span className="block text-sm font-medium text-stone-600">Opis problema</span>
-            </span>
+            <Mail className="w-8 h-8 text-[var(--color-text-secondary)] mb-1" />
+            <span className="text-lg font-bold">Email</span>
+            <span className="text-sm font-medium text-[var(--color-text-secondary)]">Za dulji opis</span>
           </a>
 
           <a 
             href={`tel:${PHONE_E164}`}
-            className="flex min-h-20 items-center justify-center gap-3 rounded-lg border border-white/30 bg-transparent px-6 py-4 text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="w-full min-h-[120px] flex flex-col items-center justify-center gap-2 rounded-[var(--radius-button)] border border-[var(--color-border)] bg-[var(--color-bg-surface)] p-6 text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)] shadow-[var(--shadow-weightless)]"
             aria-label={`Nazovi ${PHONE_NUMBER_DISPLAY}`}
           >
-            <Phone className="w-6 h-6" />
-            <span className="text-left">
-              <span className="block text-lg font-bold">Telefon</span>
-              <span className="block text-sm font-medium text-stone-300">{PHONE_NUMBER_DISPLAY}</span>
-            </span>
+            <Phone className="w-8 h-8 text-[var(--color-text-secondary)] mb-1" />
+            <span className="text-lg font-bold">Telefon</span>
+            <span className="text-sm font-medium text-[var(--color-text-secondary)]">{PHONE_NUMBER_DISPLAY}</span>
           </a>
         </div>
 
-        <div className="mx-auto max-w-2xl rounded-lg border border-white/15 bg-white/5 p-5 text-left text-stone-300">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-stone-400">
+        <div className="mx-auto max-w-xl rounded-[var(--radius-card)] border border-[var(--color-border)] bg-[var(--color-bg-surface)] p-6 text-left shadow-[var(--shadow-weightless)]">
+          <p className="mb-3 text-sm font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">
             Primjer poruke
           </p>
-          <p className="text-base leading-relaxed">
-            Laptop se sporo pali zadnjih par dana. Windows 11 je u pitanju.
-            Trebam provjeru i savjet što se isplati napraviti.
-          </p>
-          <p className="mt-4 text-sm text-stone-400">
-            Ne morate znati tehničke detalje. Dovoljno je opisati što vidite.
-          </p>
+          <div className="bg-[var(--color-bg-primary)] p-4 rounded-lg border border-[var(--color-border)]">
+            <p className="text-base md:text-lg text-[var(--color-text-primary)] font-medium leading-relaxed italic">
+              &quot;Laptop se sporo pali zadnjih par dana. Windows 11 je u pitanju.
+              Trebam provjeru i savjet što se isplati napraviti.&quot;
+            </p>
+          </div>
         </div>
       </div>
     </Section>

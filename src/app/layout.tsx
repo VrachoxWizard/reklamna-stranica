@@ -16,6 +16,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://direkt-it-pomoc-zagreb.vercel.app"
+  ),
   title: "IT pomoć i servis računala Zagreb | Windows optimizacija i backup",
   description: "Sporo računalo, Windows problemi ili trebate backup podataka? Poštena i razumljiva IT pomoć u Zagrebu za kućne korisnike, studente i male poslovne korisnike.",
   openGraph: {
@@ -24,6 +27,14 @@ export const metadata: Metadata = {
     siteName: "Direkt IT Pomoć Zagreb",
     locale: "hr_HR",
     type: "website",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "IT Pomoć Zagreb",
+      },
+    ],
   },
 };
 
